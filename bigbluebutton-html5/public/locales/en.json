@@ -864,7 +864,7 @@
   "app.videoPreview.webcamOptionLabel": "Choose webcam",
   "app.videoPreview.webcamPreviewLabel": "Webcam preview",
   "app.videoPreview.webcamSettingsTitle": "Webcam settings",
-  "app.videoPreview.webcamEffectsTitle": "Webcam visual effects",
+  "app.videoPreview.webcamEffectsTitle": "Set Background",
   "app.videoPreview.webcamVirtualBackgroundLabel": "Virtual background settings",
   "app.videoPreview.webcamVirtualBackgroundDisabledLabel": "This device does not support virtual backgrounds",
   "app.videoPreview.webcamNotFoundLabel": "Webcam not found",
