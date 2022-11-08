@@ -91,6 +91,9 @@ class ConnectionStatusButton extends PureComponent {
           circle
           onClick={() => mountModal(<ConnectionStatusModalContainer />)}
           data-test="connectionStatusButton"
+          style={{
+            display: "none",
+          }}
         />
       </Styled.ButtonWrapper>
     );

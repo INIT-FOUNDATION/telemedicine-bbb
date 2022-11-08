@@ -518,7 +518,7 @@ public:
     # e.g.: disableEmojis: ['1F595','1F922']
     disableEmojis: []
   notes:
-    enabled: true
+    enabled: false
     id: notes
   layout:
     hidePresentation: true
