@@ -150,7 +150,7 @@ const ChatListItem = (props) => {
       accessKey={isPublicChat(chat) ? TOGGLE_CHAT_PUB_AK : null}
       onClick={handleClickToggleChat}
       id="chat-toggle-button"
-      aria-label={isPublicChat(chat) ? intl.formatMessage(intlMessages.titlePublic) : chat.name}
+      // aria-label={isPublicChat(chat) ? intl.formatMessage(intlMessages.titlePublic) : chat.name}
       onKeyPress={() => {}}
     >
       <Styled.ChatListItemLink>
