@@ -97,8 +97,8 @@ class TalkingIndicator extends PureComponent {
             icon={icon}
             size="lg"
             style={{
-              backgroundColor: color,
-              border: `solid 2px ${color}`,
+              backgroundColor: "#000000",
+              border: `solid 2px "#000000"`,
             }}
           >
             {talking ? (
