@@ -3,7 +3,7 @@ import { smallOnly } from '/imports/ui/stylesheets/styled-components/breakpoints
 import { smPaddingX, smPaddingY } from '/imports/ui/stylesheets/styled-components/general';
 
 const ActionsBar = styled.div`
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
 `;
