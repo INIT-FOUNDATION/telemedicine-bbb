@@ -13,6 +13,7 @@ import AudioDial from '../audio-dial/component';
 import AudioAutoplayPrompt from '../autoplay/component';
 import Settings from '/imports/ui/services/settings';
 import CaptionsSelectContainer from '/imports/ui/components/audio/captions/select/container';
+import { colorTransparent } from '/imports/ui/stylesheets/styled-components/palette';
 
 const propTypes = {
   intl: PropTypes.shape({
@@ -414,7 +415,7 @@ class AudioModal extends Component {
       <div>
         <Styled.AudioOptions data-test="audioModalOptions">
           {!showMicrophone && !isMobileNative
-              && (
+            && (
               <>
                 <Styled.AudioModalButton
                   label={intl.formatMessage(intlMessages.microphoneLabel)}
@@ -434,9 +435,9 @@ class AudioModal extends Component {
                   {intl.formatMessage(intlMessages.microphoneDesc)}
                 </span>
               </>
-              )}
+            )}
           {listenOnlyMode
-              && (
+            && (
               <>
                 <Styled.AudioModalButton
                   label={intl.formatMessage(intlMessages.listenOnlyLabel)}
@@ -451,7 +452,7 @@ class AudioModal extends Component {
                   {intl.formatMessage(intlMessages.listenOnlyDesc)}
                 </span>
               </>
-              )}
+            )}
         </Styled.AudioOptions>
         {formattedDialNum ? (
           <Styled.AudioDial
@@ -471,6 +472,25 @@ class AudioModal extends Component {
   }
 
   renderContent() {
+
+    const audioConnectingGif = {
+      // height: "300px",
+      // width: "400px",
+      // marginLeft: "60px",
+      paddingBottom: '20px',
+      alignItems: 'center',
+    };
+
+    const audioTitle = {
+      // marginLeft: '20px',
+      //alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      fontSize: '20px',
+      textAlign: 'center'
+    }
+
     const {
       isEchoTest,
       intl,
@@ -482,10 +502,10 @@ class AudioModal extends Component {
     if (this.skipAudioOptions()) {
       return (
         <Styled.Connecting role="alert">
-          <span data-test={!isEchoTest ? 'establishingAudioLabel' : 'connectingToEchoTest'}>
-            {intl.formatMessage(intlMessages.connecting)}
-          </span>
-          <Styled.ConnectingAnimation animations={animations} />
+          <span data-test={!isEchoTest ? 'establishingAudioLabel' : 'connectingToEchoTest'} style={audioTitle}>
+            <img class="avia_image" src="https://api.dev.aieze.in/api/v1/admin/cdn/file?file_name=public/audio-loader-light-green.gif" alt="How to build a CDN Server" title="CDN.request-flow" itemprop="thumbnailUrl" style={audioConnectingGif} />
+            {intl.formatMessage(intlMessages.connecting)} </span>
+          {/* <Styled.ConnectingAnimation animations={animations} /> */}
         </Styled.Connecting>
       );
     }
