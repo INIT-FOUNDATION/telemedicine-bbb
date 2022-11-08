@@ -416,14 +416,14 @@ class InputStreamLiveSelector extends Component {
               {isListenOnly
                 ? this.renderListenOnlyButton()
                 : this.renderMuteToggleButton()}
-              <Styled.AudioDropdown
+              {/* <Styled.AudioDropdown
                 data-test="audioDropdownMenu"
                 emoji="device_list_selector"
                 label={intl.formatMessage(intlMessages.changeAudioDevice)}
                 hideLabel
                 tabIndex={0}
                 rotate
-              />
+              /> */}
             </>
           )}
           actions={dropdownListComplete}

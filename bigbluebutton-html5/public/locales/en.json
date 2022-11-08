@@ -875,7 +875,7 @@
   "app.video.connecting": "Webcam sharing is starting ...",
   "app.video.leaveVideo": "Stop sharing webcam",
   "app.video.videoSettings": "Video settings",
-  "app.video.visualEffects": "Visual effects",
+  "app.video.visualEffects": "Set Background",
   "app.video.advancedVideo": "Open advanced settings",
   "app.video.iceCandidateError": "Error on adding ICE candidate",
   "app.video.iceConnectionStateError": "Connection failure (ICE error 1107)",

@@ -62,7 +62,7 @@ public:
     # Allow users to open webcam video modal/preview when video is already
     # active. This also allows to change virtual backgrounds without
     # restarting webcam.
-    enableWebcamSelectorButton: true
+    enableWebcamSelectorButton: false
     enableTalkingIndicator: true
     enableCameraBrightness: true
     mirrorOwnWebcam: false
