@@ -314,6 +314,9 @@ class ActionsDropdown extends PureComponent {
             size="lg"
             circle
             onClick={() => null}
+            style={{
+              display: "none",
+            }}
           />
         }
         actions={children}
