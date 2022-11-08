@@ -74,7 +74,7 @@ const CloseIcon = styled(Icon)`
 `;
 
 const ToastContainer = styled.div`
-  display: flex;
+  display: none;
   flex-direction: column;
 
   ${({ small }) => small && `
@@ -177,6 +177,7 @@ const Toast = styled.div`
 `;
 
 const ToastifyContainer = styled(Toastify)`
+display: none;
   z-index: 9998;
   position: fixed;
   min-width: 20rem !important;

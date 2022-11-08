@@ -369,34 +369,6 @@ class UserListItem extends PureComponent {
         icon: userIsPinned ? 'pin-video_off' : 'pin-video_on',
       },
       {
-        allowed: isChatEnabled()
-          && enablePrivateChat
-          && !isDialInUser
-          && !meetingIsBreakout
-          && isMeteorConnected
-          && !showNestedOptions,
-        key: 'activeChat',
-        label: intl.formatMessage(messages.StartPrivateChat),
-        onClick: () => {
-          this.handleClose();
-          getGroupChatPrivate(currentUser.userId, user);
-          layoutContextDispatch({
-            type: ACTIONS.SET_SIDEBAR_CONTENT_IS_OPEN,
-            value: true,
-          });
-          layoutContextDispatch({
-            type: ACTIONS.SET_SIDEBAR_CONTENT_PANEL,
-            value: PANELS.CHAT,
-          });
-          layoutContextDispatch({
-            type: ACTIONS.SET_ID_CHAT_OPEN,
-            value: user.userId,
-          });
-        },
-        icon: 'chat',
-        dataTest: 'startPrivateChat',
-      },
-      {
         allowed: allowedToResetStatus
           && user.emoji !== 'none'
           && isMeteorConnected
@@ -436,23 +408,6 @@ class UserListItem extends PureComponent {
           this.handleClose();
         },
         icon: 'unmute',
-      },
-      {
-        allowed: allowedToChangeWhiteboardAccess
-          && !user.presenter
-          && isMeteorConnected
-          && !isDialInUser
-          && !showNestedOptions,
-        key: 'changeWhiteboardAccess',
-        label: user.whiteboardAccess
-          ? intl.formatMessage(messages.removeWhiteboardAccess)
-          : intl.formatMessage(messages.giveWhiteboardAccess),
-        onClick: () => {
-          WhiteboardService.changeWhiteboardAccess(user.userId, !user.whiteboardAccess);
-          this.handleClose();
-        },
-        icon: 'pen_tool',
-        dataTest: 'changeWhiteboardAccess',
       },
       {
         allowed: allowedToSetPresenter && isMeteorConnected && !isDialInUser && !showNestedOptions,

@@ -8,10 +8,10 @@ public:
     # audio
     autoJoin: true
     # Disables the listen only option in audio modal.
-    listenOnlyMode: true
+    listenOnlyMode: false
     forceListenOnly: false
     # Skips the echo test when connecting with microphone.
-    skipCheck: false
+    skipCheck: true
     # Skips the echo test when connecting with microphone right after user
     # joins the room the first time. Subsequent joins to microphone won't
     # have echo test skipped, for example if user leaves and joins the mic
@@ -26,26 +26,26 @@ public:
     # "media.setsinkid.enabled" to make it work properly
     # enableDynamicAudioDeviceSelection: true
     #
-    clientTitle: BigBlueButton
-    appName: BigBlueButton HTML5 Client
+    clientTitle: Telemedicine Link
+    appName: Telemedicine Link
     bbbServerVersion: HTML5_FULL_BBB_VERSION
     displayBbbServerVersion: true
-    copyright: '©2022 BigBlueButton Inc.'
+    copyright: "©2022 BigBlueButton Inc."
     html5ClientBuild: HTML5_CLIENT_VERSION
     helpLink: https://bigbluebutton.org/html5/
     lockOnJoin: true
-    cdn: ''
-    basename: '/html5client'
+    cdn: ""
+    basename: "/html5client"
     # the base location of the BBB API. If you use a cluster setup with a load
     # balancer which hides the individual nodes, then this should be
     # https://bbb-host/bigbluebutton
     # If you run a traditional setup of multiple nodes behind scalelite and the
     # users see the hostnames of the individual nodes, you can leave this at the
     # default setting
-    bbbWebBase: '/bigbluebutton'
+    bbbWebBase: "/bigbluebutton"
     # If you run a cluster setup with a load balancer which hides the individual
     # nodes, then this should be set to https://bbb-host/learning-analytics-dashboard
-    learningDashboardBase: '/learning-analytics-dashboard'
+    learningDashboardBase: "/learning-analytics-dashboard"
     # Use https URL of CSS file. Example: https://docs.bigbluebutton.org/admin/customize.html#examples
     customStyleUrl: null
     darkTheme:
@@ -67,7 +67,7 @@ public:
     enableCameraBrightness: true
     mirrorOwnWebcam: false
     viewersInWebcam: 8
-    ipv4FallbackDomain: ''
+    ipv4FallbackDomain: ""
     allowLogout: true
     allowFullscreen: true
     preloadNextSlides: 2
@@ -82,13 +82,13 @@ public:
       mobile: false
       language:
         available:
-        # - de-DE
+          # - de-DE
           - en-US
           - es-ES
-        # - fr-FR
-        # - hi-ID
-        # - it-IT
-        # - ja-JP
+          # - fr-FR
+          # - hi-ID
+          # - it-IT
+          # - ja-JP
           - pt-BR
         # - ru-RU
         # - zh-CN
@@ -109,7 +109,7 @@ public:
       threshold: -50
       duration: 4000
     remainingTimeThreshold: 30
-    remainingTimeAlertThresholdArray: [1,5]
+    remainingTimeAlertThresholdArray: [1, 5]
     enableDebugWindow: true
     # Warning: increasing the limit of breakout rooms per meeting
     # can generate excessive overhead to the server. We recommend
@@ -128,7 +128,7 @@ public:
     # If not set, default value is true.
     showAudioFilters: true
     raiseHandActionButton:
-      enabled: true
+      enabled: false
     # If enabled, before joining microphone the client will perform a trickle
     # ICE against Kurento and use the information about successfull
     # candidate-pairs to filter out local candidates in SIP.js's SDP.
@@ -141,9 +141,9 @@ public:
     #
     # Shows stats about download and upload rates, audio jitter, lost packets
     # and turn information
-    enableNetworkStats: true
+    enableNetworkStats: false
     # Enable the button to allow users to copy network stats to clipboard
-    enableCopyNetworkStatsButton: true
+    enableCopyNetworkStatsButton: false
     defaultSettings:
       application:
         animations: true
@@ -377,7 +377,7 @@ public:
     #videoMediaServer: Kurento
     autoShareWebcam: false
     skipVideoPreview: false
-    skipVideoPreviewOnFirstJoin: false
+    skipVideoPreviewOnFirstJoin: true
     # cameraSortingModes.paginationSorting: sorting mode to be applied when pagination is active
     # cameraSortingModes.defaultSorting: sorting mode when pagination is not active (full mesh)
     # Current implemented modes are:
@@ -423,12 +423,12 @@ public:
       # PUBLISHERS aren't accounted for .
       # A page size of 0 (zero) means that the page size is unlimited (disabled).
       desktopPageSizes:
-        moderator: 0
-        viewer: 5
+        moderator: 8
+        viewer: 8
       # video page sizes for MOBILE endpoints
       mobilePageSizes:
         moderator: 2
-        viewer: 2
+        viewer: 5
     paginationThresholds:
       enabled: false
       thresholds:
@@ -477,9 +477,9 @@ public:
     enabled: true
     id: captions
     dictation: false
-    background: '#000000'
+    background: "#000000"
     font:
-      color: '#ffffff'
+      color: "#ffffff"
       family: Calibri
       size: 24px
     lines: 2
@@ -521,7 +521,7 @@ public:
     enabled: true
     id: notes
   layout:
-    hidePresentation: false
+    hidePresentation: true
     showParticipantsOnLogin: true
     showPushLayoutButton: true
     showPushLayoutToggle: true
@@ -564,20 +564,20 @@ public:
         # name:  The name of the bridge
         - name: sipjs
           # path: the bridge file path, relative to /imports/api/audio/client
-          path: 'bridge/sip'
+          path: "bridge/sip"
         - name: fullaudio
-          path: 'bridge/sfu-audio-bridge'
-    stunTurnServersFetchAddress: '/bigbluebutton/api/stuns'
+          path: "bridge/sfu-audio-bridge"
+    stunTurnServersFetchAddress: "/bigbluebutton/api/stuns"
     cacheStunTurnServers: true
-    fallbackStunServer: ''
+    fallbackStunServer: ""
     # Forces relay usage on all browsers, environments and media modules.
     # If true, supersedes public.kurento.forceRelayOnFirefox
     forceRelay: false
-    mediaTag: '#remote-media'
+    mediaTag: "#remote-media"
     callTransferTimeout: 5000
     callHangupTimeout: 2000
     callHangupMaximumRetries: 10
-    echoTestNumber: 'echo'
+    echoTestNumber: "echo"
     listenOnlyCallTimeout: 25000
     # Experimental. True is the canonical behavior. Flip to false to reverse
     # the negotiation flow for LO subscribers.
@@ -602,7 +602,7 @@ public:
     # the fqdn of this host.
     # If you run a traditional setup of multiple nodes behind scalelite and the users see the hostnames of the
     # individual nodes, you can leave this at the default setting
-    sip_ws_host: ''
+    sip_ws_host: ""
     # Mute/umute toggle throttle time
     toggleMuteThrottleTime: 300
     #Websocket keepAlive interval (seconds). You may set this to prevent
@@ -616,7 +616,7 @@ public:
     #Trace sip/audio messages in browser. If not set, default value is false.
     traceSip: false
     # SDP semantics: plan-b|unified-plan
-    sdpSemantics: 'unified-plan'
+    sdpSemantics: "unified-plan"
     # localEchoTest:
     #   enabled: Boolean => enables an experimental, simplified echo test mode
     #   initialHearingState: Boolean => whether users should hear themselves firsthand
@@ -624,7 +624,7 @@ public:
     #   be used in Chromium browsers. Works around the fact that Chromium has no
     #   echo cancellation in non-rtc audio streams
     localEchoTest:
-      enabled: true
+      enabled: false
       initialHearingState: true
       useRtcLoopbackInChromium: true
     # showVolumeMeter: shows an energy bar for microphones in the AudioSettings view
@@ -664,9 +664,9 @@ public:
   presentation:
     allowDownloadable: true
     panZoomThrottle: 32
-    restoreOnUpdate: false
+    restoreOnUpdate: true
     oldMinimizeButton: false
-    uploadEndpoint: '/bigbluebutton/presentation/upload'
+    uploadEndpoint: "/bigbluebutton/presentation/upload"
     fileUploadConstraintsHint: false
     # mirroredFromBBBCore are values controlled in bbb-web properties file. We include a copy here for notification purposes
     mirroredFromBBBCore:
@@ -732,29 +732,29 @@ public:
       multiUserPenOnly: false
       colors:
         - label: black
-          value: '#000000'
+          value: "#000000"
         - label: white
-          value: '#ffffff'
+          value: "#ffffff"
         - label: red
-          value: '#ff0000'
+          value: "#ff0000"
         - label: orange
-          value: '#ff8800'
+          value: "#ff8800"
         - label: eletricLime
-          value: '#ccff00'
+          value: "#ccff00"
         - label: Lime
-          value: '#00ff00'
+          value: "#00ff00"
         - label: Cyan
-          value: '#00ffff'
+          value: "#00ffff"
         - label: dodgerBlue
-          value: '#0088ff'
+          value: "#0088ff"
         - label: blue
-          value: '#0000ff'
+          value: "#0000ff"
         - label: violet
-          value: '#8800ff'
+          value: "#8800ff"
         - label: magenta
-          value: '#ff00ff'
+          value: "#ff00ff"
         - label: silver
-          value: '#c0c0c0'
+          value: "#c0c0c0"
       thickness:
         - value: 14
         - value: 12
@@ -815,7 +815,7 @@ public:
       method: POST
       throttleInterval: 400
       flushOnClose: true
-      logTag: ''
+      logTag: ""
   virtualBackgrounds:
     enabled: true
     enableVirtualBackgroundUpload: true
@@ -837,7 +837,7 @@ private:
     loadSlidesFromHttpAlways: false
   redis:
     host: 127.0.0.1
-    port: '6379'
+    port: "6379"
     timeout: 5000
     password: null
     debug: false
@@ -895,7 +895,7 @@ private:
   prometheus:
     enabled: false
     # Metrics endpoint path
-    path: '/metrics'
+    path: "/metrics"
     # Whether default metrics for Node.js processes should be exported
     collectDefaultMetrics: false
     # Whether redis metrics should be exported

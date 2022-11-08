@@ -243,25 +243,25 @@ class UserOptions extends PureComponent {
           });
         }
 
-        this.menuItems.push({
-          key: this.lockId,
-          label: intl.formatMessage(intlMessages.lockViewersLabel),
-          // description: intl.formatMessage(intlMessages.lockViewersDesc),
-          onClick: () => mountModal(<LockViewersContainer />),
-          icon: 'lock',
-          dataTest: 'lockViewersButton',
-        });
+        // this.menuItems.push({
+        //   key: this.lockId,
+        //   label: intl.formatMessage(intlMessages.lockViewersLabel),
+        //   // description: intl.formatMessage(intlMessages.lockViewersDesc),
+        //   onClick: () => mountModal(<LockViewersContainer />),
+        //   icon: 'lock',
+        //   dataTest: 'lockViewersButton',
+        // });
 
-        if (dynamicGuestPolicy) {
-          this.menuItems.push({
-            key: this.guestPolicyId,
-            icon: 'user',
-            label: intl.formatMessage(intlMessages.guestPolicyLabel),
-            // description: intl.formatMessage(intlMessages.guestPolicyDesc),
-            onClick: () => mountModal(<GuestPolicyContainer />),
-            dataTest: 'guestPolicyLabel',
-          });
-        }
+        // if (dynamicGuestPolicy) {
+        //   this.menuItems.push({
+        //     key: this.guestPolicyId,
+        //     icon: 'user',
+        //     label: intl.formatMessage(intlMessages.guestPolicyLabel),
+        //     // description: intl.formatMessage(intlMessages.guestPolicyDesc),
+        //     onClick: () => mountModal(<GuestPolicyContainer />),
+        //     dataTest: 'guestPolicyLabel',
+        //   });
+        // }
       }
 
       if (amIModerator) {
@@ -275,48 +275,48 @@ class UserOptions extends PureComponent {
         });
       }
 
-      this.menuItems.push({
-        key: this.clearStatusId,
-        label: intl.formatMessage(intlMessages.clearAllLabel),
-        // description: intl.formatMessage(intlMessages.clearAllDesc),
-        onClick: toggleStatus,
-        icon: 'clear_status',
-        divider: true,
-      });
+      // this.menuItems.push({
+      //   key: this.clearStatusId,
+      //   label: intl.formatMessage(intlMessages.clearAllLabel),
+      //   // description: intl.formatMessage(intlMessages.clearAllDesc),
+      //   onClick: toggleStatus,
+      //   icon: 'clear_status',
+      //   divider: true,
+      // });
 
-      if (canCreateBreakout) {
-        this.menuItems.push({
-          key: this.createBreakoutId,
-          icon: 'rooms',
-          label: intl.formatMessage(intlMessages.createBreakoutRoom),
-          // description: intl.formatMessage(intlMessages.createBreakoutRoomDesc),
-          onClick: this.onCreateBreakouts,
-          dataTest: 'createBreakoutRooms',
-        });
-      }
+      // if (canCreateBreakout) {
+      //   this.menuItems.push({
+      //     key: this.createBreakoutId,
+      //     icon: 'rooms',
+      //     label: intl.formatMessage(intlMessages.createBreakoutRoom),
+      //     // description: intl.formatMessage(intlMessages.createBreakoutRoomDesc),
+      //     onClick: this.onCreateBreakouts,
+      //     dataTest: 'createBreakoutRooms',
+      //   });
+      // }
 
-      if (amIModerator && CaptionsService.isCaptionsEnabled()) {
-        this.menuItems.push({
-          icon: 'closed_caption',
-          label: intl.formatMessage(intlMessages.captionsLabel),
-          // description: intl.formatMessage(intlMessages.captionsDesc),
-          key: this.captionsId,
-          onClick: this.handleCaptionsClick,
-        });
-      }
-      if (amIModerator) {
-        if (isLearningDashboardEnabled()) {
-          this.menuItems.push({
-            icon: 'multi_whiteboard',
-            iconRight: 'popout_window',
-            label: intl.formatMessage(intlMessages.learningDashboardLabel),
-            description: intl.formatMessage(intlMessages.learningDashboardDesc),
-            key: this.learningDashboardId,
-            onClick: () => { openLearningDashboardUrl(locale); },
-            dividerTop: true,
-          });
-        }
-      }
+      // if (amIModerator && CaptionsService.isCaptionsEnabled()) {
+      //   this.menuItems.push({
+      //     icon: 'closed_caption',
+      //     label: intl.formatMessage(intlMessages.captionsLabel),
+      //     // description: intl.formatMessage(intlMessages.captionsDesc),
+      //     key: this.captionsId,
+      //     onClick: this.handleCaptionsClick,
+      //   });
+      // }
+      // if (amIModerator) {
+      //   if (isLearningDashboardEnabled()) {
+      //     this.menuItems.push({
+      //       icon: 'multi_whiteboard',
+      //       iconRight: 'popout_window',
+      //       label: intl.formatMessage(intlMessages.learningDashboardLabel),
+      //       description: intl.formatMessage(intlMessages.learningDashboardDesc),
+      //       key: this.learningDashboardId,
+      //       onClick: () => { openLearningDashboardUrl(locale); },
+      //       dividerTop: true,
+      //     });
+      //   }
+      // }
     }
 
     return this.menuItems;
