@@ -482,10 +482,10 @@ class AudioModal extends Component {
     if (this.skipAudioOptions()) {
       return (
         <Styled.Connecting role="alert">
-          <span data-test={!isEchoTest ? 'establishingAudioLabel' : 'connectingToEchoTest'} style={audioTitle}>
-            <img class="avia_image" src="https://api.dev.aieze.in/api/v1/admin/cdn/file?file_name=public/audio-loader-light-green.gif" alt="How to build a CDN Server" title="CDN.request-flow" itemprop="thumbnailUrl" style={audioConnectingGif} />
-            {intl.formatMessage(intlMessages.connecting)} </span>
-          {/* <Styled.ConnectingAnimation animations={animations} /> */}
+          <span data-test={!isEchoTest ? 'establishingAudioLabel' : 'connectingToEchoTest'}>
+            {intl.formatMessage(intlMessages.connecting)}
+          </span>
+          <Styled.ConnectingAnimation animations={animations} />
         </Styled.Connecting>
       );
     }
