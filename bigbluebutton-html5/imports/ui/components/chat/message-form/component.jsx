@@ -366,6 +366,18 @@ class MessageForm extends PureComponent {
             onClick={() => { }}
             data-test="sendMessageButton"
           />
+          <Styled.SendButton
+            hideLabel
+            circle
+            aria-label={intl.formatMessage(messages.submitLabel)}
+            type="submit"
+            disabled={disabled || partnerIsLoggedOut}
+            label={intl.formatMessage(messages.submitLabel)}
+            color="primary"
+            icon="send"
+            onClick={() => { }}
+            data-test="sendMessageButton"
+          />
         </Styled.Wrapper>
         <TypingIndicatorContainer {...{ idChatOpen, error }} />
       </Styled.Form>
