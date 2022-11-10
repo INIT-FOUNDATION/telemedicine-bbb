@@ -63,9 +63,9 @@ const PresentationOptionsContainer = ({
       ghost={!presentationIsOpen}
       disabled={!isThereCurrentPresentation}
       data-test={!presentationIsOpen ? 'restorePresentation' : 'minimizePresentation'}
-      style={{
-        display: "none",
-      }}
+      // style={{
+      //   display: "none",
+      // }}
     />
   );
 };
