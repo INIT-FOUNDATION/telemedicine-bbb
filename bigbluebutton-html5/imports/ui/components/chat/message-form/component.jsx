@@ -71,6 +71,8 @@ const CHAT_CONFIG = Meteor.settings.public.chat;
 const AUTO_CONVERT_EMOJI = Meteor.settings.public.chat.autoConvertEmoji;
 const ENABLE_EMOJI_PICKER = Meteor.settings.public.chat.emojiPicker.enable;
 
+const handlePresentationClick = () => Session.set('showUploadPresentationView', true);
+
 class MessageForm extends PureComponent {
   constructor(props) {
     super(props);
@@ -375,7 +377,7 @@ class MessageForm extends PureComponent {
             label={intl.formatMessage(messages.submitLabel)}
             color="primary"
             icon="send"
-            onClick={() => { }}
+            onClick={handlePresentationClick}
             data-test="sendMessageButton"
           />
         </Styled.Wrapper>
