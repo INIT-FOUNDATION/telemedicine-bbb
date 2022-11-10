@@ -521,7 +521,7 @@ public:
     enabled: false
     id: notes
   layout:
-    hidePresentation: false
+    hidePresentation: true
     showParticipantsOnLogin: true
     showPushLayoutButton: true
     showPushLayoutToggle: true
