@@ -661,13 +661,12 @@ export const getUserNamesLink = (docTitle, fnSortedLabel, lnSortedLabel) => {
   const namesByLastName = userNamesObj.sort(sortUsersByLastName)
     .map((u) => getUsernameString(u)).join('\r\n');
 
-  const namesListsString = `${docTitle}\r\n\r\n${fnSortedLabel}\r\n${namesByFirstName}
-    \r\n\r\n${lnSortedLabel}\r\n${namesByLastName}`.replace(/ {2}/g, ' ');
+  const namesListsString = `${docTitle}\r\n\r\n${namesByFirstName}`.replace(/ {2}/g, ' ');
 
   const link = document.createElement('a');
   const meeting = Meetings.findOne({ meetingId: Auth.meetingID },
     { fields: { 'meetingProp.name': 1 } });
-  link.setAttribute('download', `bbb-${meeting.meetingProp.name}[users-list]_${getDateString()}.txt`);
+  link.setAttribute('download', `${meeting.meetingProp.name}_${getDateString().split("-").join("")}.txt`);
   link.setAttribute(
     'href',
     `data: ${mimeType};charset=utf-16,${encodeURIComponent(namesListsString)}`,
