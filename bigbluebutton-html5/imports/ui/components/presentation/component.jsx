@@ -1020,7 +1020,7 @@ class Presentation extends PureComponent {
               >
                 <Styled.VisuallyHidden id="currentSlideText">{slideContent}</Styled.VisuallyHidden>
                 {this.renderPresentationMenu()}
-                <WhiteboardContainer
+                {/* <WhiteboardContainer
                   whiteboardId={currentSlide?.id}
                   podId={podId}
                   slidePosition={slidePosition}
@@ -1036,7 +1036,7 @@ class Presentation extends PureComponent {
                   zoomChanger={this.zoomChanger}
                   fitToWidth={fitToWidth}
                   zoomValue={zoom}
-                />
+                /> */}
                 {isFullscreen && <PollingContainer />}
               </div>
               <Styled.PresentationToolbar
