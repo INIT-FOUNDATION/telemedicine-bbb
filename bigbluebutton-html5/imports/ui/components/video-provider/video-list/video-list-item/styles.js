@@ -4,6 +4,7 @@ import {
   colorBlack,
   colorWhite,
   webcamBackgroundColor,
+  colorBackground,
   colorDanger,
 } from '/imports/ui/stylesheets/styled-components/palette';
 import { TextElipsis } from '/imports/ui/stylesheets/styled-components/placeholders';
@@ -85,7 +86,7 @@ const WebcamConnecting = styled.div`
   width: 100%;
   min-width: 100%;
   border-radius: 10px;
-  background-color: ${webcamBackgroundColor};
+  background-color: ${colorBackground};
   z-index: 0;
 
   &::after {
