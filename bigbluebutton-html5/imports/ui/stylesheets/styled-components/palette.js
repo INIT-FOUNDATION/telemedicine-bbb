@@ -4,6 +4,7 @@ const colorOffWhite = 'var(--color-off-white, #F3F6F9)';
 const colorBlack = 'var(--color-black, #000000)';
 
 const colorGray = 'var(--color-gray, #4E5A66)';
+const colorGrayDarker = 'var(--color-gray, #313132)';
 const colorGrayDark = 'var(--color-gray-dark, #06172A)';
 const colorGrayLight = 'var(--color-gray-light, #8B9AA8)';
 const colorGrayLighter = 'var(--color-gray-lighter, #A7B3BD)';
@@ -15,7 +16,7 @@ const colorBlueLightest = 'var(--color-blue-lightest, #E4ECF2)';
 
 const colorTransparent = 'var(--color-transparent, #ff000000)';
 
-const colorPrimary = 'var(--color-primary, #0F70D7)';
+const colorPrimary = 'var(--color-primary, #0C9E9B)';
 const colorDanger = 'var(--color-danger, #DF2721)';
 const colorDangerDark = 'var(--color-danger-dark, #AE1010)';
 const colorSuccess = 'var(--color-success, #008081)';
@@ -24,7 +25,7 @@ const colorOffline = `var(--color-offline, ${colorGrayLight})`;
 const colorMuted = 'var(--color-muted, #586571)';
 const colorMutedBackground = 'var(--color-muted-background, #F3F6F9)';
 
-const colorBackground = `var(--color-background, ${colorGrayDark})`;
+const colorBackground = `var(--color-background, ${colorBlack})`;
 const colorOverlay = 'var(--color-overlay, rgba(6, 23, 42, 0.75))';
 
 const userListBg = `var(--user-list-bg, ${colorOffWhite})`;
@@ -50,8 +51,8 @@ const btnDefaultGhostActiveBg = 'var(--btn-default-active-bg, rgba(255, 255, 255
 const btnPrimaryBorder = 'var(--btn-primary-border, rgba(15, 112, 215, 0.5))'; // colorPrimary, 50%
 const btnPrimaryColor = `var(--btn-primary-color, ${colorWhite})`;
 const btnPrimaryBg = `var(--btn-primary-bg, ${colorPrimary})`;
-const btnPrimaryHoverBg = 'var(--btn-primary-hover-bg, #0C57A7)';
-const btnPrimaryActiveBg = 'var(--btn-primary-active-bg, #0A4B8F)';
+const btnPrimaryHoverBg = 'var(--btn-primary-hover-bg, #369ba6)';
+const btnPrimaryActiveBg = 'var(--btn-primary-active-bg, #0C9E9B)';
 
 const btnSuccessBorder = `var(--btn-success-border, ${colorSuccess})`;
 const btnSuccessColor = `var(--btn-success-color, ${colorWhite})`;
@@ -125,6 +126,7 @@ export {
   colorOffWhite,
   colorBlack,
   colorGray,
+  colorGrayDarker,
   colorGrayDark,
   colorGrayLight,
   colorGrayLighter,
