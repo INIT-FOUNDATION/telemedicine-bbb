@@ -80,7 +80,7 @@ const btnMutedBg = `var(--btn-muted-bg, ${colorMutedBackground})`;
 
 const toolbarButtonColor = `var(--toolbar-button-color, ${btnDefaultColor})`;
 const userThumbnailBorder = `var(--user-thumbnail-border, ${colorGrayLight})`;
-const loaderBg = `var(--loader-bg, ${colorGrayDark})`;
+const loaderBg = `var(--loader-bg, ${colorBackground})`;
 const loaderBullet = `var(--loader-bullet, ${colorWhite})`;
 
 const systemMessageBackgroundColor = 'var(--system-message-background-color, #F9FBFC)';

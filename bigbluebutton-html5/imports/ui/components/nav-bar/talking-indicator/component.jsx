@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { defineMessages, injectIntl } from 'react-intl';
 import Styled from './styles';
 import Service from './service';
+import { colorBackground } from '/imports/ui/stylesheets/styled-components/palette';
 
 const intlMessages = defineMessages({
   wasTalking: {
@@ -97,8 +98,8 @@ class TalkingIndicator extends PureComponent {
             icon={icon}
             size="lg"
             style={{
-              backgroundColor: "#06172A",
-              border: `solid 2px "#06172A"`,
+              backgroundColor: colorBackground,
+              border: `solid 2px "${colorBackground}"`,
             }}
           >
             {talking ? (
