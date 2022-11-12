@@ -1350,14 +1350,14 @@ class PresentationUploader extends Component {
             </Styled.ActionWrapper>
           </Styled.ModalHeader>
 
-          <Styled.ModalHint>
+          {/* <Styled.ModalHint>
             {`${intl.formatMessage(intlMessages.message)}`}
             {fileUploadConstraintsHint ? this.renderExtraHint() : null}
-          </Styled.ModalHint>
+          </Styled.ModalHint> */}
           {this.renderPresentationList()}
-          <Styled.ExportHint>
+          {/* <Styled.ExportHint>
             {intl.formatMessage(intlMessages.exportHint)}
-          </Styled.ExportHint>
+          </Styled.ExportHint> */}
           {isMobile ? this.renderPicDropzone() : null}
           {this.renderDropzone()}
           {this.renderExternalUpload()}
