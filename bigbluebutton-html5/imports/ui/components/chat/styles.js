@@ -4,8 +4,7 @@ import {
   colorPrimary
 } from '/imports/ui/stylesheets/styled-components/palette';
 import { smallOnly } from '/imports/ui/stylesheets/styled-components/breakpoints';
-import { mdPaddingX, smPaddingX } from '/imports/ui/stylesheets/styled-components/general';
-import Button from '/imports/ui/components/common/button/component';
+import { mdPaddingX } from '/imports/ui/stylesheets/styled-components/general';
 
 const Chat = styled.div`
   background-color: ${colorWhite};
@@ -56,20 +55,4 @@ const Chat = styled.div`
   }
 `;
 
-
-const DownloadButton = styled(Button)`
-  margin:0 0 0 ${smPaddingX};
-  align-self: center;
-  font-size: 0.9rem;
-
-  [dir="rtl"]  & {
-    margin: 0 ${smPaddingX} 0 0;
-    -webkit-transform: scale(-1, 1);
-    -moz-transform: scale(-1, 1);
-    -ms-transform: scale(-1, 1);
-    -o-transform: scale(-1, 1);
-    transform: scale(-1, 1);
-  }
-`;
-
-export default { Chat, DownloadButton };
+export default { Chat };
