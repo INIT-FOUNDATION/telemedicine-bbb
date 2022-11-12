@@ -284,7 +284,7 @@ class MeetingEnded extends PureComponent {
                           description={intl.formatMessage(intlMessage.open_activity_report_btn)}
                           style={
                             {
-                              display: none
+                              display: "none"
                             }
                           }
                         />

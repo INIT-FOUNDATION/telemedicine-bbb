@@ -111,7 +111,7 @@ class UserMessages extends PureComponent {
         <Styled.Container>
           {
             !compact ? (
-              <Styled.MessagesTitle data-test="messageTitle" style = {{ display: none }}>
+              <Styled.MessagesTitle data-test="messageTitle" style = {{ display: "none" }}>
                 {intl.formatMessage(intlMessages.messagesTitle)}
               </Styled.MessagesTitle>
             ) : (
