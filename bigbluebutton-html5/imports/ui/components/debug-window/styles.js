@@ -3,6 +3,9 @@ import { smPaddingX } from '/imports/ui/stylesheets/styled-components/general';
 import Resizable from 're-resizable';
 import Icon from '/imports/ui/components/common/icon/component';
 import Button from '/imports/ui/components/common/button/component';
+import {
+  colorGrayLighter,
+} from '/imports/ui/stylesheets/styled-components/palette';
 
 const ToggleLabel = styled.span`
   margin-right: ${smPaddingX};
@@ -23,7 +26,7 @@ const DebugWindow = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
-  border: 2px solid #06172A;
+  border: 2px solid ${colorGrayLighter};
 
   &::after {
     content: "";
