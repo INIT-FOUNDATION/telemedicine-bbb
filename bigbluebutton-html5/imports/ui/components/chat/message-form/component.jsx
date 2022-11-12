@@ -32,6 +32,10 @@ const messages = defineMessages({
     id: 'app.chat.submitLabel',
     description: 'Chat submit button label',
   },
+  attachFileLabel: {
+    id: 'app.chat.attachFileLabel',
+    description: 'Chat Attach file label',
+  },
   inputLabel: {
     id: 'app.chat.inputLabel',
     description: 'Chat message input label',
@@ -303,7 +307,7 @@ class MessageForm extends PureComponent {
     const { intl } = this.props;
 
     return (
-      <Styled.SendButton
+      <Styled.EmojiButton
         onClick={() => this.setState((prevState) => ({
           showEmojiPicker: !prevState.showEmojiPicker,
         }))}
@@ -371,14 +375,14 @@ class MessageForm extends PureComponent {
           <Styled.SendButton
             hideLabel
             circle
-            aria-label={intl.formatMessage(messages.submitLabel)}
+            aria-label={intl.formatMessage(messages.attachFileLabel)}
             type="submit"
             disabled={disabled || partnerIsLoggedOut}
-            label={intl.formatMessage(messages.submitLabel)}
+            label={intl.formatMessage(messages.attachFileLabel)}
             color="primary"
             icon="file"
             onClick={handlePresentationClick}
-            data-test="sendMessageButton"
+            data-test="fileAttachButton"
           />
         </Styled.Wrapper>
         <TypingIndicatorContainer {...{ idChatOpen, error }} />
