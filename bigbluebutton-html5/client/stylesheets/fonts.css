@@ -88,6 +88,11 @@
        url('fonts/SourceSansPro/SourceSansPro-Bold.woff?v=VERSION') format('woff');
   unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
 }
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/webfonts/fa-solid-900.ttf') format('truetype');
+}
 /* latin-ext */
 @font-face {
   font-family: 'Source Sans Pro';

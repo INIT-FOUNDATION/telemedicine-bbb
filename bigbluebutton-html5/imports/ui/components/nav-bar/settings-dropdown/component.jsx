@@ -320,7 +320,7 @@ class SettingsDropdown extends PureComponent {
           <Styled.DropdownButton
             state={isDropdownOpen ? 'open' : 'closed'}
             label={intl.formatMessage(intlMessages.optionsLabel)}
-            icon="more"
+            icon="end-meeting"
             data-test="optionsButton"
             color="dark"
             size="md"
