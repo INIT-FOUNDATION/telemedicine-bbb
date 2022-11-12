@@ -840,12 +840,12 @@ class PresentationUploader extends Component {
                 {intl.formatMessage(intlMessages.options)}
               </Styled.VisuallyHidden>
             </tr>
-            <Styled.Head>
+            {/* <Styled.Head>
               <th colSpan={4}>{intl.formatMessage(intlMessages.currentLabel)}</th>
               {
                 allowDownloadable ? <th>{intl.formatMessage(intlMessages.downloadLabel)}</th> : null
               }
-            </Styled.Head>
+            </Styled.Head> */}
           </thead>
           <tbody>
             {_.uniqBy(presentationsSorted, 'id').map((item) => this.renderPresentationItem(item))}

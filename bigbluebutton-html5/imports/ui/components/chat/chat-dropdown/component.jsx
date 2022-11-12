@@ -76,7 +76,7 @@ class ChatDropdown extends PureComponent {
           onClick: () => {
             const link = document.createElement('a');
             const mimeType = 'text/plain';
-            link.setAttribute('download', `bbb-${meetingName}[public-chat]_${getDateString()}.txt`);
+            link.setAttribute('download', `${meetingName}[public-chat]_${getDateString().split("-").join("")}.txt`);
             link.setAttribute(
               'href',
               `data: ${mimeType};charset=utf-8,`
