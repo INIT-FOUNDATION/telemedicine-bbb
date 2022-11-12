@@ -31,7 +31,7 @@ class UserContent extends PureComponent {
 
     return (
       <Styled.Content data-test="userListContent">
-        {isChatEnabled() ? <UserMessagesContainer /> : null}
+        {/* {isChatEnabled() ? <UserMessagesContainer /> : null} */}
         {currentUser.role === ROLE_MODERATOR ? <UserCaptionsContainer /> : null}
         <UserNotesContainer />
         {showWaitingRoom && currentUser.role === ROLE_MODERATOR
@@ -41,6 +41,8 @@ class UserContent extends PureComponent {
         <UserPollsContainer isPresenter={currentUser.presenter} />
         <BreakoutRoomContainer />
         <UserParticipantsContainer compact={compact}/>
+      
+        {isChatEnabled() ? <UserMessagesContainer /> : null}
       </Styled.Content>
     );
   }
