@@ -10,6 +10,7 @@ import AutoplayOverlay from '../media/autoplay-overlay/component';
 import logger from '/imports/startup/client/logger';
 import playAndRetry from '/imports/utils/mediaElementPlayRetry';
 import { notify } from '/imports/ui/services/notification';
+import { colorBackground } from '/imports/ui/stylesheets/styled-components/palette';
 import {
   SCREENSHARE_MEDIA_ELEMENT_NAME,
   isMediaFlowing,
@@ -541,7 +542,7 @@ class ScreenshareComponent extends React.Component {
             height,
             width,
             zIndex: fullscreenContext ? zIndex : undefined,
-            backgroundColor: '#06172A',
+            backgroundColor: colorBackground,
           }
         }
       >
