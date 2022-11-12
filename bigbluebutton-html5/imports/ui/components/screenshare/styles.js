@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import {
   colorWhite,
-  colorContentBackground,
+  colorBackground,
+  colorContentBackground
 } from '/imports/ui/stylesheets/styled-components/palette';
 import SpinnerStyles from '/imports/ui/components/common/loading-screen/styles';
 
@@ -27,7 +28,7 @@ const ScreenshareVideo = styled.video`
 
 const ScreenshareContainer = styled.div`
   position: relative;
-  background-color: ${colorContentBackground};
+  background-color: ${colorBackground};
   width: 100%;
   height: 100%;
 

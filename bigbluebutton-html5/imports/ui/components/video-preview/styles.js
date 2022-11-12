@@ -8,6 +8,7 @@ import {
   colorWhite,
   colorGrayLighter,
   colorGrayDark,
+  colorBackground,
   colorPrimary,
   colorText,
 } from '/imports/ui/stylesheets/styled-components/palette';
@@ -117,7 +118,7 @@ const BrowserWarning = styled.p`
 
 const Title = styled.div`
   display: block;
-  color: ${colorGrayDark};
+  color: ${colorBackground};
   font-size: 1.4rem;
   text-align: center;
 `;
