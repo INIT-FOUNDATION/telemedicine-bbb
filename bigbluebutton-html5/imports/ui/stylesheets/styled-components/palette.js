@@ -3,6 +3,9 @@ const colorOffWhite = 'var(--color-off-white, #F3F6F9)';
 
 const colorBlack = 'var(--color-black, #000000)';
 
+const moderatorAvatarBackground = colorBlack;
+const moderatorAvatarBorderColor = colorBlack;
+
 const colorGray = 'var(--color-gray, #4E5A66)';
 const colorGrayDarker = 'var(--color-gray, #313132)';
 const colorGrayDark = 'var(--color-gray-dark, #06172A)';
@@ -198,6 +201,8 @@ export {
   toolbarButtonBg,
   toolbarListBg,
   toolbarListBgFocus,
+  moderatorAvatarBackground,
+  moderatorAvatarBorderColor,
   pollStatsBorderColor,
   pollBlue,
   colorContentBackground,

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Settings from '/imports/ui/services/settings';
 import Styled from './styles';
 import browserInfo from '/imports/utils/browserInfo';
+import { moderatorAvatarBackground, moderatorAvatarBorderColor } from '/imports/ui/stylesheets/styled-components/palette';
+
 
 const propTypes = {
   children: PropTypes.node,
@@ -74,8 +76,8 @@ const UserAvatar = ({
         isFirefox={isFirefox}
         isEdge={isEdge}
         style={{
-          backgroundColor: color,
-          color, // We need the same color on both for the border
+          backgroundColor: moderatorAvatarBackground,
+          color: moderatorAvatarBorderColor, // We need the same color on both for the border
         }}
       >
 
