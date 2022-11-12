@@ -4,7 +4,7 @@ import {
   colorPrimary
 } from '/imports/ui/stylesheets/styled-components/palette';
 import { smallOnly } from '/imports/ui/stylesheets/styled-components/breakpoints';
-import { mdPaddingX } from '/imports/ui/stylesheets/styled-components/general';
+import { mdPaddingX, smPaddingX } from '/imports/ui/stylesheets/styled-components/general';
 import Button from '/imports/ui/components/common/button/component';
 
 const Chat = styled.div`
