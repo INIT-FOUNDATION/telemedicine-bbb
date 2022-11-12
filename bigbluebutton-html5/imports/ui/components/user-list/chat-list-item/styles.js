@@ -75,8 +75,6 @@ const ChatListItem = styled(Styled.ListItem)`
   margin-left: ${borderSize};
   margin-top: ${borderSize};
   margin-bottom: ${borderSize};
-  position: absolute;
-  bottom: 0;
   margin-right: 0;
 
   [dir="rtl"] & {
