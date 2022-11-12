@@ -282,6 +282,11 @@ class MeetingEnded extends PureComponent {
                           onClick={() => LearningDashboardService.openLearningDashboardUrl(locale)}
                           label={intl.formatMessage(intlMessage.open_activity_report_btn)}
                           description={intl.formatMessage(intlMessage.open_activity_report_btn)}
+                          style={
+                            {
+                              display: none
+                            }
+                          }
                         />
                       </Styled.Text>
                     ) : null
