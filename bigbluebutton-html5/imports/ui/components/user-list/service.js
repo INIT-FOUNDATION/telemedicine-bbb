@@ -666,7 +666,7 @@ export const getUserNamesLink = (docTitle, fnSortedLabel, lnSortedLabel) => {
   const link = document.createElement('a');
   const meeting = Meetings.findOne({ meetingId: Auth.meetingID },
     { fields: { 'meetingProp.name': 1 } });
-  link.setAttribute('download', `${meeting.meetingProp.name}_${getDateString().split("-").join("")}.txt`);
+  link.setAttribute('download', `${meeting.meetingProp.name}[attendees-list]_${getDateString().split("-").join("")}.txt`);
   link.setAttribute(
     'href',
     `data: ${mimeType};charset=utf-16,${encodeURIComponent(namesListsString)}`,

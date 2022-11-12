@@ -1106,12 +1106,13 @@ class PresentationUploader extends Component {
         {hasError ? null : (
           <Styled.TableItemActions notDownloadable={!allowDownloadable}>
             {allowDownloadable ? (
-              <Styled.DownloadButton
+              <Styled.SendButton
                 disabled={shouldDisableExportButton}
                 label={intl.formatMessage(intlMessages.export)}
                 data-test="exportPresentationToPublicChat"
                 aria-label={formattedDownloadAriaLabel}
                 size="sm"
+                icon="send"
                 color="primary"
                 onClick={() => this.handleSendToChat(item)}
                 animations={animations}
