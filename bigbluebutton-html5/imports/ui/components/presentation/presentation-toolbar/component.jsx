@@ -289,7 +289,7 @@ class PresentationToolbar extends PureComponent {
       <Styled.PresentationToolbarWrapper
         id="presentationToolbarWrapper"
       >
-        {this.renderAriaDescs()}
+        {/* {this.renderAriaDescs()}
         {
           <div>
             {isPollingEnabled ? (
@@ -442,7 +442,7 @@ class PresentationToolbar extends PureComponent {
               hideLabel
             />
           </Styled.PresentationZoomControls>
-        }
+        } */}
       </Styled.PresentationToolbarWrapper>
     );
   }
