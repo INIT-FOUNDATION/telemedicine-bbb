@@ -332,11 +332,9 @@ const getExportedPresentationString = (fileURI, filename, intl) => {
     circle
     aria-label={intl.formatMessage(label)}
     type="submit"
-    disabled={disabled || partnerIsLoggedOut}
-    label={intl.formatMessage(download)}
+    label={intl.formatMessage(label)}
     color="primary"
     icon="download"
-    onClick={handlePresentationClick}
     data-test="downloadFileButton"
   />}</a>`;
   const name = `<span>${filename}</span>`;
