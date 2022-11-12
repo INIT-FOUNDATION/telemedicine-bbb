@@ -97,12 +97,9 @@
   content: "\e902";
 }
 .icon-bbb-more:before {
-  font-family: FontAwesome !important;
-  /* content: "\f095"; */
-  content: "\f3dd";
+  content: "\e902";
   display: inline-block;
-  color: red;
-  /* transform: rotate(90deg) */
+  transform: rotate(90deg);
 }
 .icon-bbb-promote:before {
   content: "\e903";
