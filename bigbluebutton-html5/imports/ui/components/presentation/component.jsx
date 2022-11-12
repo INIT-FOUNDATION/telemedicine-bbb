@@ -681,7 +681,7 @@ class Presentation extends PureComponent {
         {/* {this.renderPresentationClose()}
         {this.renderPresentationDownload()}
         {this.renderPresentationFullscreen()} */}
-        {this.renderPresentationMenu()}
+        {/* {this.renderPresentationMenu()} */}
         <Styled.PresentationSvg
           key={currentSlide.id}
           data-test={!presentationIsOpen ? 'hiddenWhiteboard' : 'whiteboard'}
