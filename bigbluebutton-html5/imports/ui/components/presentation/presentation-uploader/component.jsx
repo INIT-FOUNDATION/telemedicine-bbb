@@ -1162,13 +1162,13 @@ class PresentationUploader extends Component {
         <Styled.TableItemName colSpan={!isActualCurrent ? 2 : 0}>
           <span>{item.filename}</span>
         </Styled.TableItemName>
-        {isActualCurrent ? (
+        {/* {isActualCurrent ? (
           <Styled.TableItemCurrent>
             <Styled.CurrentLabel>
               {intl.formatMessage(intlMessages.current)}
             </Styled.CurrentLabel>
           </Styled.TableItemCurrent>
-        ) : null}
+        ) : null} */}
         <Styled.TableItemStatus colSpan={hasError ? 2 : 0}>
           {this.renderPresentationItemStatus(item)}
         </Styled.TableItemStatus>

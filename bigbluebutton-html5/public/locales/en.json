@@ -275,7 +275,7 @@
   "app.presentationUploder.conversion.timeout": "Ops, the conversion took too long",
   "app.presentationUploder.conversion.pageCountFailed": "Failed to determine the number of pages.",
   "app.presentationUploder.conversion.unsupportedDocument": "File extension not supported",
-  "app.presentationUploder.removePresentationLabel": "Remove presentation",
+  "app.presentationUploder.removePresentationLabel": "Remove attachment",
   "app.presentationUploder.setAsCurrentPresentation": "Set presentation as current",
   "app.presentationUploder.tableHeading.filename": "File name",
   "app.presentationUploder.tableHeading.options": "Options",
