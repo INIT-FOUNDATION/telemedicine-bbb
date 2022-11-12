@@ -380,7 +380,7 @@ class MessageForm extends PureComponent {
             disabled={disabled || partnerIsLoggedOut}
             label={intl.formatMessage(messages.attachFileLabel)}
             color="primary"
-            icon="file"
+            icon="attach"
             onClick={handlePresentationClick}
             data-test="fileAttachButton"
           />
