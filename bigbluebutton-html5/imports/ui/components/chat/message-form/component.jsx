@@ -303,7 +303,7 @@ class MessageForm extends PureComponent {
     const { intl } = this.props;
 
     return (
-      <Styled.EmojiButton
+      <Styled.SendButton
         onClick={() => this.setState((prevState) => ({
           showEmojiPicker: !prevState.showEmojiPicker,
         }))}
@@ -376,7 +376,7 @@ class MessageForm extends PureComponent {
             disabled={disabled || partnerIsLoggedOut}
             label={intl.formatMessage(messages.submitLabel)}
             color="primary"
-            icon="send"
+            icon="file"
             onClick={handlePresentationClick}
             data-test="sendMessageButton"
           />
