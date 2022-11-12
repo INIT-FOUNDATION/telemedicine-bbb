@@ -10,6 +10,7 @@ import { stripTags, unescapeHtml } from '/imports/utils/string-utils';
 import { meetingIsBreakout } from '/imports/ui/components/app/service';
 import { defineMessages } from 'react-intl';
 import PollService from '/imports/ui/components/poll/service';
+import Styled from './styles';
 
 const CHAT_CONFIG = Meteor.settings.public.chat;
 const GROUPING_MESSAGES_WINDOW = CHAT_CONFIG.grouping_messages_window;
@@ -326,7 +327,18 @@ const removePackagedClassAttribute = (classnames, attribute) => {
 
 const getExportedPresentationString = (fileURI, filename, intl) => {
   const label = intl.formatMessage(intlMessages.download);
-  const link = `<a href=${fileURI} type="application/pdf" rel="noopener, noreferrer" download>${label}</a>`;
+  const link = `<a href=${fileURI} type="application/pdf" rel="noopener, noreferrer" download>${<Styled.DownloadButton
+    hideLabel
+    circle
+    aria-label={intl.formatMessage(label)}
+    type="submit"
+    disabled={disabled || partnerIsLoggedOut}
+    label={intl.formatMessage(download)}
+    color="primary"
+    icon="download"
+    onClick={handlePresentationClick}
+    data-test="downloadFileButton"
+  />}</a>`;
   const name = `<span>${filename}</span>`;
   return `${name}</br>${link}`;
 };
