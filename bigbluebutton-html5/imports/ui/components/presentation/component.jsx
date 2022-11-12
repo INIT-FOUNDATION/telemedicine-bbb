@@ -1047,7 +1047,7 @@ class Presentation extends PureComponent {
                   }
                 }
               >
-                {this.renderPresentationToolbar(svgWidth)}
+                {/* {this.renderPresentationToolbar(svgWidth)} */}
               </Styled.PresentationToolbar>
               {/*this.renderPresentationToolbar()*/}
             </Styled.SvgContainer>
