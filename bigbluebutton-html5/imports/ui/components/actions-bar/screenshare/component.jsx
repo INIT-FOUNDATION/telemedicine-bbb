@@ -176,7 +176,7 @@ const ScreenshareButton = ({
     : intlMessages.desktopShareDesc;
 
   const shouldAllowScreensharing =
-    enabled && (isMobile || isMobileApp) && amIPresenter;
+    enabled && (!isMobile || isMobileApp) && amIPresenter;
 
   const dataTest = isVideoBroadcasting ? "stopScreenShare" : "startScreenShare";
 
