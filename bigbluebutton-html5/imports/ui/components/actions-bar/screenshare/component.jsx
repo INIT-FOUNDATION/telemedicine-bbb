@@ -1,19 +1,19 @@
-import React, { memo } from 'react';
-import PropTypes from 'prop-types';
-import { defineMessages, injectIntl } from 'react-intl';
-import deviceInfo from '/imports/utils/deviceInfo';
-import browserInfo from '/imports/utils/browserInfo';
-import logger from '/imports/startup/client/logger';
-import { notify } from '/imports/ui/services/notification';
-import { withModalMounter } from '/imports/ui/components/common/modal/service';
-import Styled from './styles';
-import ScreenshareBridgeService from '/imports/api/screenshare/client/bridge/service';
+import React, { memo } from "react";
+import PropTypes from "prop-types";
+import { defineMessages, injectIntl } from "react-intl";
+import deviceInfo from "/imports/utils/deviceInfo";
+import browserInfo from "/imports/utils/browserInfo";
+import logger from "/imports/startup/client/logger";
+import { notify } from "/imports/ui/services/notification";
+import { withModalMounter } from "/imports/ui/components/common/modal/service";
+import Styled from "./styles";
+import ScreenshareBridgeService from "/imports/api/screenshare/client/bridge/service";
 import {
   shareScreen,
   screenshareHasEnded,
-} from '/imports/ui/components/screenshare/service';
-import { SCREENSHARING_ERRORS } from '/imports/api/screenshare/client/bridge/errors';
-import Button from '/imports/ui/components/common/button/component';
+} from "/imports/ui/components/screenshare/service";
+import { SCREENSHARING_ERRORS } from "/imports/api/screenshare/client/bridge/errors";
+import Button from "/imports/ui/components/common/button/component";
 
 const { isMobile } = deviceInfo;
 const { isSafari, isMobileApp } = browserInfo;
@@ -29,48 +29,51 @@ const propTypes = {
 
 const intlMessages = defineMessages({
   desktopShareLabel: {
-    id: 'app.actionsBar.actionsDropdown.desktopShareLabel',
-    description: 'Desktop Share option label',
+    id: "app.actionsBar.actionsDropdown.desktopShareLabel",
+    description: "Desktop Share option label",
   },
   stopDesktopShareLabel: {
-    id: 'app.actionsBar.actionsDropdown.stopDesktopShareLabel',
-    description: 'Stop Desktop Share option label',
+    id: "app.actionsBar.actionsDropdown.stopDesktopShareLabel",
+    description: "Stop Desktop Share option label",
   },
   desktopShareDesc: {
-    id: 'app.actionsBar.actionsDropdown.desktopShareDesc',
-    description: 'adds context to desktop share option',
+    id: "app.actionsBar.actionsDropdown.desktopShareDesc",
+    description: "adds context to desktop share option",
   },
   stopDesktopShareDesc: {
-    id: 'app.actionsBar.actionsDropdown.stopDesktopShareDesc',
-    description: 'adds context to stop desktop share option',
+    id: "app.actionsBar.actionsDropdown.stopDesktopShareDesc",
+    description: "adds context to stop desktop share option",
   },
   screenShareNotSupported: {
-    id: 'app.media.screenshare.notSupported',
-    descriptions: 'error message when trying share screen on unsupported browsers',
+    id: "app.media.screenshare.notSupported",
+    descriptions:
+      "error message when trying share screen on unsupported browsers",
   },
   screenShareUnavailable: {
-    id: 'app.media.screenshare.unavailable',
-    descriptions: 'title for unavailable screen share modal',
+    id: "app.media.screenshare.unavailable",
+    descriptions: "title for unavailable screen share modal",
   },
   finalError: {
-    id: 'app.screenshare.screenshareFinalError',
-    description: 'Screen sharing failures with no recovery procedure',
+    id: "app.screenshare.screenshareFinalError",
+    description: "Screen sharing failures with no recovery procedure",
   },
   retryError: {
-    id: 'app.screenshare.screenshareRetryError',
-    description: 'Screen sharing failures where a retry is recommended',
+    id: "app.screenshare.screenshareRetryError",
+    description: "Screen sharing failures where a retry is recommended",
   },
   retryOtherEnvError: {
-    id: 'app.screenshare.screenshareRetryOtherEnvError',
-    description: 'Screen sharing failures where a retry in another environment is recommended',
+    id: "app.screenshare.screenshareRetryOtherEnvError",
+    description:
+      "Screen sharing failures where a retry in another environment is recommended",
   },
   unsupportedEnvError: {
-    id: 'app.screenshare.screenshareUnsupportedEnv',
-    description: 'Screen sharing is not supported, changing browser or device is recommended',
+    id: "app.screenshare.screenshareUnsupportedEnv",
+    description:
+      "Screen sharing is not supported, changing browser or device is recommended",
   },
   permissionError: {
-    id: 'app.screenshare.screensharePermissionError',
-    description: 'Screen sharing failure due to lack of permission',
+    id: "app.screenshare.screensharePermissionError",
+    description: "Screen sharing failure due to lack of permission",
   },
 });
 
@@ -131,68 +134,78 @@ const ScreenshareButton = ({
     const localizedError = getErrorLocale(errorCode);
 
     if (localizedError) {
-      notify(intl.formatMessage(localizedError, { 0: errorCode }), 'error', 'desktop');
-      logger.error({
-        logCode: 'screenshare_failed',
-        extraInfo: { errorCode, errorMessage },
-      }, `Screenshare failed: ${errorMessage} (code=${errorCode})`);
+      notify(
+        intl.formatMessage(localizedError, { 0: errorCode }),
+        "error",
+        "desktop"
+      );
+      logger.error(
+        {
+          logCode: "screenshare_failed",
+          extraInfo: { errorCode, errorMessage },
+        },
+        `Screenshare failed: ${errorMessage} (code=${errorCode})`
+      );
     }
 
     screenshareHasEnded();
   };
 
-  const renderScreenshareUnavailableModal = () => mountModal(
-    <Styled.ScreenShareModal
-      onRequestClose={() => mountModal(null)}
-      hideBorder
-      contentLabel={intl.formatMessage(intlMessages.screenShareUnavailable)}
-    >
-      <Styled.Title>
-        {intl.formatMessage(intlMessages.screenShareUnavailable)}
-      </Styled.Title>
-      <p>{intl.formatMessage(intlMessages.screenShareNotSupported)}</p>
-    </Styled.ScreenShareModal>,
-  );
+  const renderScreenshareUnavailableModal = () =>
+    mountModal(
+      <Styled.ScreenShareModal
+        onRequestClose={() => mountModal(null)}
+        hideBorder
+        contentLabel={intl.formatMessage(intlMessages.screenShareUnavailable)}
+      >
+        <Styled.Title>
+          {intl.formatMessage(intlMessages.screenShareUnavailable)}
+        </Styled.Title>
+        <p>{intl.formatMessage(intlMessages.screenShareNotSupported)}</p>
+      </Styled.ScreenShareModal>
+    );
 
   const screenshareLabel = intlMessages.desktopShareLabel;
 
   const vLabel = isVideoBroadcasting
-    ? intlMessages.stopDesktopShareLabel : screenshareLabel;
+    ? intlMessages.stopDesktopShareLabel
+    : screenshareLabel;
 
   const vDescr = isVideoBroadcasting
-    ? intlMessages.stopDesktopShareDesc : intlMessages.desktopShareDesc;
+    ? intlMessages.stopDesktopShareDesc
+    : intlMessages.desktopShareDesc;
 
-  const shouldAllowScreensharing = enabled
-    && ( !isMobile || isMobileApp)
-    && amIPresenter;
+  const shouldAllowScreensharing =
+    enabled && (isMobile || isMobileApp) && amIPresenter;
 
-  const dataTest = isVideoBroadcasting ? 'stopScreenShare' : 'startScreenShare';
+  const dataTest = isVideoBroadcasting ? "stopScreenShare" : "startScreenShare";
 
-  return shouldAllowScreensharing
-    ? (
-      <Button
-        disabled={(!isMeteorConnected && !isVideoBroadcasting)}
-        icon={isVideoBroadcasting ? 'desktop' : 'desktop_off'}
-        data-test={dataTest}
-        label={intl.formatMessage(vLabel)}
-        description={intl.formatMessage(vDescr)}
-        color={isVideoBroadcasting ? 'primary' : 'default'}
-        ghost={!isVideoBroadcasting}
-        hideLabel
-        circle
-        size="lg"
-        onClick={isVideoBroadcasting
+  return shouldAllowScreensharing ? (
+    <Button
+      disabled={!isMeteorConnected && !isVideoBroadcasting}
+      icon={isVideoBroadcasting ? "desktop" : "desktop_off"}
+      data-test={dataTest}
+      label={intl.formatMessage(vLabel)}
+      description={intl.formatMessage(vDescr)}
+      color={isVideoBroadcasting ? "primary" : "default"}
+      ghost={!isVideoBroadcasting}
+      hideLabel
+      circle
+      size="lg"
+      onClick={
+        isVideoBroadcasting
           ? screenshareHasEnded
           : () => {
-            if (isSafari && !ScreenshareBridgeService.HAS_DISPLAY_MEDIA) {
-              renderScreenshareUnavailableModal();
-            } else {
-              shareScreen(amIPresenter, handleFailure);
+              if (isSafari && !ScreenshareBridgeService.HAS_DISPLAY_MEDIA) {
+                renderScreenshareUnavailableModal();
+              } else {
+                shareScreen(amIPresenter, handleFailure);
+              }
             }
-          }}
-        id={isVideoBroadcasting ? 'unshare-screen-button' : 'share-screen-button'}
-      />
-    ) : null;
+      }
+      id={isVideoBroadcasting ? "unshare-screen-button" : "share-screen-button"}
+    />
+  ) : null;
 };
 
 ScreenshareButton.propTypes = propTypes;
