@@ -202,7 +202,7 @@ const renderPendingUsers = (
 ) => {
   if (!usersArray.length) return null;
   return (
-    <Styled.PendingUsers>
+    <Styled.WaitingUsers>
       <Styled.MainTitle>{message}</Styled.MainTitle>
       <Styled.UsersWrapper>
         <Styled.Users>
@@ -225,7 +225,7 @@ const renderPendingUsers = (
           )}
         </Styled.Users>
       </Styled.UsersWrapper>
-    </Styled.PendingUsers>
+    </Styled.WaitingUsers>
   );
 };
 

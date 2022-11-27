@@ -197,6 +197,12 @@ const ModeratorActions = styled.div`
   padding: 0 .2rem;
 `;
 
+const WaitingUsers = styled.div`
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 2rem;
+`;
+
 export default {
   ListItem,
   UserContentContainer,
@@ -216,4 +222,5 @@ export default {
   RememberContainer,
   ScrollableArea,
   ModeratorActions,
+  WaitingUsers
 };
