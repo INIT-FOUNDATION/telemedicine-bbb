@@ -139,8 +139,8 @@ const renderGuestUserItem = (
             label={intl.formatMessage(intlMessages.privateMessageLabel)}
             onClick={privateMessageVisible}
           />
-        ) : null} */}
-        |
+        ) : null}
+        | */}
         <Styled.WaitingUsersButton
           key={`userbtn-accept-${userId}`}
           color="primary"
@@ -365,44 +365,46 @@ const WaitingUsers = (props) => {
             <p>
               <i>
                 &quot;
-                {
-                guestLobbyMessage.length > 0
+                {guestLobbyMessage.length > 0
                   ? guestLobbyMessage
-                  : intl.formatMessage(intlMessages.emptyMessage)
-              }
+                  : intl.formatMessage(intlMessages.emptyMessage)}
                 &quot;
               </i>
             </p>
           </Styled.LobbyMessage>
         ) : null}
-          <Styled.ModeratorActions>
-            <Styled.MainTitle>{intl.formatMessage(intlMessages.optionTitle)}</Styled.MainTitle>
-            {
-            buttonsData.map((buttonData) => renderButton(
-              intl.formatMessage(buttonData.messageId),
-              buttonData,
-            ))
-          }
+        <Styled.ModeratorActions>
+          <Styled.MainTitle>
+            {intl.formatMessage(intlMessages.optionTitle)}
+          </Styled.MainTitle>
+          {buttonsData.map((buttonData) =>
+            renderButton(intl.formatMessage(buttonData.messageId), buttonData)
+          )}
           {allowRememberChoice ? (
             <Styled.RememberContainer>
-              <input id="rememderCheckboxId" type="checkbox" onChange={onCheckBoxChange} />
+              <input
+                id="rememderCheckboxId"
+                type="checkbox"
+                onChange={onCheckBoxChange}
+              />
               <label htmlFor="rememderCheckboxId">
                 {intl.formatMessage(intlMessages.rememberChoice)}
               </label>
             </Styled.RememberContainer>
           ) : null}
-        </Styled.ModeratorActions>
+        </Styled.ModeratorActions> */}
         {renderPendingUsers(
-          intl.formatMessage(intlMessages.pendingUsers,
-            { 0: authenticatedUsers.length }),
+          intl.formatMessage(intlMessages.pendingUsers, {
+            0: authenticatedUsers.length,
+          }),
           authenticatedUsers,
           guestUsersCall,
           intl,
           privateMessageVisible,
           setPrivateGuestLobbyMessage,
           privateGuestLobbyMessage,
-          isGuestLobbyMessageEnabled,
-        )} */}
+          isGuestLobbyMessageEnabled
+        )}
         {renderPendingUsers(
           intl.formatMessage(intlMessages.pendingGuestUsers, {
             0: guestUsers.length,

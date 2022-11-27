@@ -142,7 +142,7 @@
     }
 
     function updatePositionOnPage(message, currentPosition) {
-      document.querySelector('#positionInWaitingQueue > p').innerHTML = message + currentPosition;
+      document.querySelector('#positionInWaitingQueue > p').innerHTML = '' + '';
     }
 
     function stopUpdatingWaitingPosition() {
@@ -154,9 +154,11 @@
       if (positionInWaitingQueue !== newPositionInWaitingQueue) {
         positionInWaitingQueue = newPositionInWaitingQueue;
         if (positionInWaitingQueue === '1') {
-          updatePositionOnPage(_(''), '');
+          // updatePositionOnPage(_('app.guest.firstPositionInWaitingQueue'), '')
+          stopUpdatingWaitingPosition()
         } else {
-          updatePositionOnPage(_(''), '');
+          // updatePositionOnPage(_('app.guest.positionInWaitingQueue'), positionInWaitingQueue);
+          stopUpdatingWaitingPosition()
         }
       }
     }
