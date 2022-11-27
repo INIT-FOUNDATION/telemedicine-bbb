@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { defineMessages, injectIntl } from 'react-intl';
-import Icon from '/imports/ui/components/common/icon/component';
-import Styled from './styles';
-import { ACTIONS, PANELS } from '../../../layout/enums';
+import React from "react";
+import PropTypes from "prop-types";
+import { defineMessages, injectIntl } from "react-intl";
+import Icon from "/imports/ui/components/common/icon/component";
+import Styled from "./styles";
+import { ACTIONS, PANELS } from "../../../layout/enums";
 
 const propTypes = {
   intl: PropTypes.shape({
@@ -13,12 +13,12 @@ const propTypes = {
 
 const intlMessages = defineMessages({
   waitingUsersTitle: {
-    id: 'app.userList.guest.waitingUsersTitle',
-    description: 'Title for the notes list',
+    id: "app.userList.guest.waitingUsersTitle",
+    description: "Title for the notes list",
   },
   title: {
-    id: 'app.userList.guest.waitingUsers',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.waitingUsers",
+    description: "Title for the waiting users",
   },
 });
 
@@ -35,19 +35,20 @@ const WaitingUsers = ({
     });
     layoutContextDispatch({
       type: ACTIONS.SET_SIDEBAR_CONTENT_PANEL,
-      value: sidebarContentPanel === PANELS.WAITING_USERS
-        ? PANELS.NONE
-        : PANELS.WAITING_USERS,
+      value:
+        sidebarContentPanel === PANELS.WAITING_USERS
+          ? PANELS.NONE
+          : PANELS.WAITING_USERS,
     });
   };
 
   return (
     <Styled.Messages>
-      <Styled.Container>
+      {/* <Styled.Container>
         <Styled.SmallTitle>
           {intl.formatMessage(intlMessages.waitingUsersTitle)}
         </Styled.SmallTitle>
-      </Styled.Container>
+      </Styled.Container> */}
       <Styled.ScrollableList>
         <Styled.List>
           <Styled.ListItem
@@ -55,7 +56,7 @@ const WaitingUsers = ({
             data-test="waitingUsersBtn"
             tabIndex={0}
             onClick={toggleWaitingPanel}
-            onKeyPress={() => { }}
+            onKeyPress={() => {}}
           >
             <Icon iconName="user" />
             <span>{intl.formatMessage(intlMessages.title)}</span>

@@ -1,93 +1,93 @@
-import _ from 'lodash';
-import React, { useEffect, useState } from 'react';
-import { defineMessages, injectIntl } from 'react-intl';
-import injectWbResizeEvent from '/imports/ui/components/presentation/resize-wrapper/component';
-import UserAvatar from '/imports/ui/components/user-avatar/component';
-import TextInput from '/imports/ui/components/text-input/component';
-import Styled from './styles';
-import { PANELS, ACTIONS } from '../layout/enums';
-import Settings from '/imports/ui/services/settings';
-import browserInfo from '/imports/utils/browserInfo';
-import Header from '/imports/ui/components/common/control-header/component';
-import { notify } from '/imports/ui/services/notification';
+import _ from "lodash";
+import React, { useEffect, useState } from "react";
+import { defineMessages, injectIntl } from "react-intl";
+import injectWbResizeEvent from "/imports/ui/components/presentation/resize-wrapper/component";
+import UserAvatar from "/imports/ui/components/user-avatar/component";
+import TextInput from "/imports/ui/components/text-input/component";
+import Styled from "./styles";
+import { PANELS, ACTIONS } from "../layout/enums";
+import Settings from "/imports/ui/services/settings";
+import browserInfo from "/imports/utils/browserInfo";
+import Header from "/imports/ui/components/common/control-header/component";
+import { notify } from "/imports/ui/services/notification";
 
 const intlMessages = defineMessages({
   waitingUsersTitle: {
-    id: 'app.userList.guest.waitingUsersTitle',
-    description: 'Title for the notes list',
+    id: "app.userList.guest.waitingUsersTitle",
+    description: "Title for the notes list",
   },
   title: {
-    id: 'app.userList.guest.waitingUsers',
-    description: 'Label for the waiting users',
+    id: "app.userList.guest.waitingUsers",
+    description: "Label for the waiting users",
   },
   optionTitle: {
-    id: 'app.userList.guest.optionTitle',
-    description: 'Label above the options',
+    id: "app.userList.guest.optionTitle",
+    description: "Label above the options",
   },
   allowAllAuthenticated: {
-    id: 'app.userList.guest.allowAllAuthenticated',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.allowAllAuthenticated",
+    description: "Title for the waiting users",
   },
   allowAllGuests: {
-    id: 'app.userList.guest.allowAllGuests',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.allowAllGuests",
+    description: "Title for the waiting users",
   },
   allowEveryone: {
-    id: 'app.userList.guest.allowEveryone',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.allowEveryone",
+    description: "Title for the waiting users",
   },
   denyEveryone: {
-    id: 'app.userList.guest.denyEveryone',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.denyEveryone",
+    description: "Title for the waiting users",
   },
   pendingUsers: {
-    id: 'app.userList.guest.pendingUsers',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.pendingUsers",
+    description: "Title for the waiting users",
   },
   pendingGuestUsers: {
-    id: 'app.userList.guest.pendingGuestUsers',
-    description: 'Title for the waiting users',
+    id: "app.userList.guest.pendingGuestUsers",
+    description: "Title for the waiting users",
   },
   noPendingUsers: {
-    id: 'app.userList.guest.noPendingUsers',
-    description: 'Label for no users waiting',
+    id: "app.userList.guest.noPendingUsers",
+    description: "Label for no users waiting",
   },
   rememberChoice: {
-    id: 'app.userList.guest.rememberChoice',
-    description: 'Remember label for checkbox',
+    id: "app.userList.guest.rememberChoice",
+    description: "Remember label for checkbox",
   },
   emptyMessage: {
-    id: 'app.userList.guest.emptyMessage',
-    description: 'Empty guest lobby message label',
+    id: "app.userList.guest.emptyMessage",
+    description: "Empty guest lobby message label",
   },
   inputPlaceholder: {
-    id: 'app.userList.guest.inputPlaceholder',
-    description: 'Placeholder to guest lobby message input',
+    id: "app.userList.guest.inputPlaceholder",
+    description: "Placeholder to guest lobby message input",
   },
   privateMessageLabel: {
-    id: 'app.userList.guest.privateMessageLabel',
-    description: 'Private message button label',
-  },  
+    id: "app.userList.guest.privateMessageLabel",
+    description: "Private message button label",
+  },
   privateInputPlaceholder: {
-    id: 'app.userList.guest.privateInputPlaceholder',
-    description: 'Private input placeholder',
+    id: "app.userList.guest.privateInputPlaceholder",
+    description: "Private input placeholder",
   },
   accept: {
-    id: 'app.userList.guest.acceptLabel',
-    description: 'Accept guest button label',
+    id: "app.userList.guest.acceptLabel",
+    description: "Accept guest button label",
   },
   deny: {
-    id: 'app.userList.guest.denyLabel',
-    description: 'Deny guest button label',
+    id: "app.userList.guest.denyLabel",
+    description: "Deny guest button label",
   },
   feedbackMessage: {
-    id: 'app.userList.guest.feedbackMessage',
-    description: 'Feedback message moderator action',
+    id: "app.userList.guest.feedbackMessage",
+    description: "Feedback message moderator action",
   },
 });
 
-const ALLOW_STATUS = 'ALLOW';
-const DENY_STATUS = 'DENY';
+const ALLOW_STATUS = "ALLOW";
+const DENY_STATUS = "DENY";
 const { animations } = Settings.application;
 
 const getNameInitials = (name) => {
@@ -97,66 +97,79 @@ const getNameInitials = (name) => {
 };
 
 const renderGuestUserItem = (
-  name, color, handleAccept, handleDeny, role, sequence, userId, avatar, intl,
-  privateMessageVisible, setPrivateGuestLobbyMessage, privateGuestLobbyMessage, isGuestLobbyMessageEnabled,
+  name,
+  color,
+  handleAccept,
+  handleDeny,
+  role,
+  sequence,
+  userId,
+  avatar,
+  intl,
+  privateMessageVisible,
+  setPrivateGuestLobbyMessage,
+  privateGuestLobbyMessage,
+  isGuestLobbyMessageEnabled
 ) => (
   <React.Fragment key={`user-${userId}`}>
-  <Styled.ListItem key={`userlist-item-${userId}`} animations={animations}>
-    <Styled.UserContentContainer key={`user-content-container-${userId}`}>
-      <Styled.UserAvatarContainer key={`user-avatar-container-${userId}`}>
-        <UserAvatar
-          key={`user-avatar-${userId}`}
-          moderator={role === 'MODERATOR'}
-          avatar={avatar}
-          color={color}
-        >
-          {getNameInitials(name)}
-        </UserAvatar>
-      </Styled.UserAvatarContainer>
-      <Styled.UserName key={`user-name-${userId}`}>
-        {`[${sequence}] ${name}`}
-      </Styled.UserName>
-    </Styled.UserContentContainer>
+    <Styled.ListItem key={`userlist-item-${userId}`} animations={animations}>
+      <Styled.UserContentContainer key={`user-content-container-${userId}`}>
+        <Styled.UserAvatarContainer key={`user-avatar-container-${userId}`}>
+          <UserAvatar
+            key={`user-avatar-${userId}`}
+            moderator={role === "MODERATOR"}
+            avatar={avatar}
+            color={color}
+          >
+            {getNameInitials(name)}
+          </UserAvatar>
+        </Styled.UserAvatarContainer>
+        <Styled.UserName key={`user-name-${userId}`}>
+          {`[${sequence}] ${name}`}
+        </Styled.UserName>
+      </Styled.UserContentContainer>
 
-    <Styled.ButtonContainer key={`userlist-btns-${userId}`}>
-    { isGuestLobbyMessageEnabled ? ( 
-      <Styled.WaitingUsersButton
-        key={`userbtn-message-${userId}`}
-        color="primary"
-        size="lg"
-        ghost
-        label={intl.formatMessage(intlMessages.privateMessageLabel)}
-        onClick={privateMessageVisible} 
-      />
-    ) : null}
+      <Styled.ButtonContainer key={`userlist-btns-${userId}`}>
+        {/* {isGuestLobbyMessageEnabled ? (
+          <Styled.WaitingUsersButton
+            key={`userbtn-message-${userId}`}
+            color="primary"
+            size="lg"
+            ghost
+            label={intl.formatMessage(intlMessages.privateMessageLabel)}
+            onClick={privateMessageVisible}
+          />
+        ) : null} */}
         |
-      <Styled.WaitingUsersButton
-        key={`userbtn-accept-${userId}`}
-        color="primary"
-        size="lg"
-        ghost
-        label={intl.formatMessage(intlMessages.accept)}
-        onClick={handleAccept}
-      />
-      |
-      <Styled.WaitingUsersButton
-        key={`userbtn-deny-${userId}`}
-        color="danger"
-        size="lg"
-        ghost
-        label={intl.formatMessage(intlMessages.deny)}
-        onClick={handleDeny}
-      />
-    </Styled.ButtonContainer>
-  </Styled.ListItem>
-  { isGuestLobbyMessageEnabled ? (
-    <Styled.PrivateLobbyMessage
-      id={`privateMessage-${userId}`}>
+        <Styled.WaitingUsersButton
+          key={`userbtn-accept-${userId}`}
+          color="primary"
+          size="lg"
+          ghost
+          label={intl.formatMessage(intlMessages.accept)}
+          onClick={handleAccept}
+        />
+        |
+        <Styled.WaitingUsersButton
+          key={`userbtn-deny-${userId}`}
+          color="danger"
+          size="lg"
+          ghost
+          label={intl.formatMessage(intlMessages.deny)}
+          onClick={handleDeny}
+        />
+      </Styled.ButtonContainer>
+    </Styled.ListItem>
+    {isGuestLobbyMessageEnabled ? (
+      <Styled.PrivateLobbyMessage id={`privateMessage-${userId}`}>
         <TextInput
           maxLength={128}
-          placeholder={intl.formatMessage(intlMessages.privateInputPlaceholder,
-                                         { 0: name })}
-          send={setPrivateGuestLobbyMessage} />
+          placeholder={intl.formatMessage(
+            intlMessages.privateInputPlaceholder,
+            { 0: name }
+          )}
+          send={setPrivateGuestLobbyMessage}
+        />
         <p>
           <i>
             &quot;
@@ -166,44 +179,50 @@ const renderGuestUserItem = (
             &quot;
           </i>
         </p>
-    </Styled.PrivateLobbyMessage>
-  ) : null}
+      </Styled.PrivateLobbyMessage>
+    ) : null}
   </React.Fragment>
 );
 
 const renderNoUserWaitingItem = (message) => (
   <Styled.PendingUsers>
-    <Styled.NoPendingUsers>
-      {message}
-    </Styled.NoPendingUsers>
+    <Styled.NoPendingUsers>{message}</Styled.NoPendingUsers>
   </Styled.PendingUsers>
 );
 
-const renderPendingUsers = (message, usersArray, action, intl,
-  privateMessageVisible, setPrivateGuestLobbyMessage, 
-  privateGuestLobbyMessage, isGuestLobbyMessageEnabled
-) => { 
+const renderPendingUsers = (
+  message,
+  usersArray,
+  action,
+  intl,
+  privateMessageVisible,
+  setPrivateGuestLobbyMessage,
+  privateGuestLobbyMessage,
+  isGuestLobbyMessageEnabled
+) => {
   if (!usersArray.length) return null;
   return (
     <Styled.PendingUsers>
       <Styled.MainTitle>{message}</Styled.MainTitle>
       <Styled.UsersWrapper>
         <Styled.Users>
-          {usersArray.map((user, idx) => renderGuestUserItem(
-            user.name,
-            user.color,
-            () => action([user], ALLOW_STATUS),
-            () => action([user], DENY_STATUS),
-            user.role,
-            idx + 1,
-            user.intId,
-            user.avatar,
-            intl,
-            () => privateMessageVisible(`privateMessage-${user.intId}`),
-            (message) => setPrivateGuestLobbyMessage(message, user.intId),
-            privateGuestLobbyMessage(user.intId),
-            isGuestLobbyMessageEnabled,
-          ))}
+          {usersArray.map((user, idx) =>
+            renderGuestUserItem(
+              user.name,
+              user.color,
+              () => action([user], ALLOW_STATUS),
+              () => action([user], DENY_STATUS),
+              user.role,
+              idx + 1,
+              user.intId,
+              user.avatar,
+              intl,
+              () => privateMessageVisible(`privateMessage-${user.intId}`),
+              (message) => setPrivateGuestLobbyMessage(message, user.intId),
+              privateGuestLobbyMessage(user.intId),
+              isGuestLobbyMessageEnabled
+            )
+          )}
         </Styled.Users>
       </Styled.UsersWrapper>
     </Styled.PendingUsers>
@@ -230,7 +249,8 @@ const WaitingUsers = (props) => {
     allowRememberChoice,
   } = props;
 
-  const existPendingUsers = authenticatedUsers.length > 0 || guestUsers.length > 0;
+  const existPendingUsers =
+    authenticatedUsers.length > 0 || guestUsers.length > 0;
 
   const closePanel = () => {
     layoutContextDispatch({
@@ -244,9 +264,7 @@ const WaitingUsers = (props) => {
   };
 
   useEffect(() => {
-    const {
-      isWaitingRoomEnabled,
-    } = props;
+    const { isWaitingRoomEnabled } = props;
     if (!isWaitingRoomEnabled && !existPendingUsers) {
       closePanel();
     }
@@ -257,15 +275,18 @@ const WaitingUsers = (props) => {
     setRememberChoice(checked);
   };
 
-  const changePolicy = (shouldExecutePolicy, policyRule, cb, message) => () => {   
+  const changePolicy = (shouldExecutePolicy, policyRule, cb, message) => () => {
     if (shouldExecutePolicy) {
       changeGuestPolicy(policyRule);
     }
 
     closePanel();
-    
-    notify(intl.formatMessage(intlMessages.feedbackMessage) + message.toUpperCase(), 'success');
-    
+
+    notify(
+      intl.formatMessage(intlMessages.feedbackMessage) + message.toUpperCase(),
+      "success"
+    );
+
     return cb();
   };
 
@@ -283,36 +304,39 @@ const WaitingUsers = (props) => {
     {
       messageId: intlMessages.allowAllAuthenticated,
       action: () => guestUsersCall(authenticatedUsers, ALLOW_STATUS),
-      key: 'allow-all-auth',
-      color: 'primary',
-      policy: 'ALWAYS_ACCEPT_AUTH',
+      key: "allow-all-auth",
+      color: "primary",
+      policy: "ALWAYS_ACCEPT_AUTH",
     },
     {
       messageId: intlMessages.allowAllGuests,
-      action: () => guestUsersCall(
-        [...guestUsers].concat(rememberChoice ? authenticatedUsers : []),
-        ALLOW_STATUS,
-      ),
-      key: 'allow-all-guest',
-      color: 'primary',
-      policy: 'ALWAYS_ACCEPT',
+      action: () =>
+        guestUsersCall(
+          [...guestUsers].concat(rememberChoice ? authenticatedUsers : []),
+          ALLOW_STATUS
+        ),
+      key: "allow-all-guest",
+      color: "primary",
+      policy: "ALWAYS_ACCEPT",
     },
   ];
 
   const guestButtonsData = [
     {
       messageId: intlMessages.allowEveryone,
-      action: () => guestUsersCall([...guestUsers, ...authenticatedUsers], ALLOW_STATUS),
-      key: 'allow-everyone',
-      color: 'primary',
-      policy: 'ALWAYS_ACCEPT',
+      action: () =>
+        guestUsersCall([...guestUsers, ...authenticatedUsers], ALLOW_STATUS),
+      key: "allow-everyone",
+      color: "primary",
+      policy: "ALWAYS_ACCEPT",
     },
     {
       messageId: intlMessages.denyEveryone,
-      action: () => guestUsersCall([...guestUsers, ...authenticatedUsers], DENY_STATUS),
-      key: 'deny-everyone',
-      color: 'danger',
-      policy: 'ALWAYS_DENY',
+      action: () =>
+        guestUsersCall([...guestUsers, ...authenticatedUsers], DENY_STATUS),
+      key: "deny-everyone",
+      color: "danger",
+      policy: "ALWAYS_DENY",
     },
   ];
 
@@ -331,7 +355,7 @@ const WaitingUsers = (props) => {
         }}
       />
       <Styled.ScrollableArea>
-        {isGuestLobbyMessageEnabled ? (
+        {/* {isGuestLobbyMessageEnabled ? (
           <Styled.LobbyMessage>
             <TextInput
               maxLength={128}
@@ -378,21 +402,23 @@ const WaitingUsers = (props) => {
           setPrivateGuestLobbyMessage,
           privateGuestLobbyMessage,
           isGuestLobbyMessageEnabled,
-        )}
+        )} */}
         {renderPendingUsers(
-          intl.formatMessage(intlMessages.pendingGuestUsers,
-            { 0: guestUsers.length }),
+          intl.formatMessage(intlMessages.pendingGuestUsers, {
+            0: guestUsers.length,
+          }),
           guestUsers,
           guestUsersCall,
           intl,
           privateMessageVisible,
           setPrivateGuestLobbyMessage,
           privateGuestLobbyMessage,
-          isGuestLobbyMessageEnabled,
+          isGuestLobbyMessageEnabled
         )}
-        {!existPendingUsers && (
-          renderNoUserWaitingItem(intl.formatMessage(intlMessages.noPendingUsers))
-        )}
+        {!existPendingUsers &&
+          renderNoUserWaitingItem(
+            intl.formatMessage(intlMessages.noPendingUsers)
+          )}
       </Styled.ScrollableArea>
     </Styled.Panel>
   );
