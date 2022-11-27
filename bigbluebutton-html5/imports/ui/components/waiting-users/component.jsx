@@ -125,7 +125,8 @@ const renderGuestUserItem = (
           </UserAvatar>
         </Styled.UserAvatarContainer>
         <Styled.UserName key={`user-name-${userId}`}>
-          {`[${sequence}] ${name}`}
+          {/* {`[${sequence}] ${name}`} */}
+          {`${name}`}
         </Styled.UserName>
       </Styled.UserContentContainer>
 
@@ -202,8 +203,8 @@ const renderPendingUsers = (
 ) => {
   if (!usersArray.length) return null;
   return (
-    <Styled.PendingUsers role="alert">
-      <Styled.MainTitle>{message}</Styled.MainTitle>
+    <Styled.PendingUsers>
+      {/* <Styled.MainTitle>{message}</Styled.MainTitle> */}
       <Styled.UsersWrapper>
         <Styled.Users>
           {usersArray.map((user, idx) =>
