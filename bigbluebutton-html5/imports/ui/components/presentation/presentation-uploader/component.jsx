@@ -543,7 +543,7 @@ class PresentationUploader extends Component {
       if (item.id.indexOf(item.filename) !== -1 && item.upload.progress === 0)
         hasNewUpload = true;
     });
-    this.handleConfirm(hasNewUpload);
+    this.handleConfirm(true);
   }
 
   handleRemove(item, withErr = false) {
