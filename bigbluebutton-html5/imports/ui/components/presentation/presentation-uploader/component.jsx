@@ -532,18 +532,6 @@ class PresentationUploader extends Component {
     if (rejected.length > 0) {
       notify(intl.formatMessage(intlMessages.rejectedError), "error");
     }
-
-    const { isPresenter } = this.props;
-    if (!isPresenter) return null;
-    const { presentations } = this.state;
-
-    let hasNewUpload = false;
-
-    presentations.forEach((item) => {
-      if (item.id.indexOf(item.filename) !== -1 && item.upload.progress === 0)
-        hasNewUpload = true;
-    });
-    this.handleConfirm(true);
   }
 
   handleRemove(item, withErr = false) {
