@@ -1409,7 +1409,7 @@ class PresentationUploader extends Component {
           <Styled.ModalHeader>
             <h1>{intl.formatMessage(intlMessages.title)}</h1>
             <Styled.ActionWrapper>
-              <Styled.DismissButton
+              {/* <Styled.DismissButton
                 color="secondary"
                 onClick={this.handleDismiss}
                 label={intl.formatMessage(intlMessages.dismissLabel)}
@@ -1425,7 +1425,7 @@ class PresentationUploader extends Component {
                     ? intl.formatMessage(intlMessages.uploadLabel)
                     : intl.formatMessage(intlMessages.confirmLabel)
                 }
-              />
+              /> */}
             </Styled.ActionWrapper>
           </Styled.ModalHeader>
 
