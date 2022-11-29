@@ -525,6 +525,7 @@ class PresentationUploader extends Component {
         // make the first of the new presentations current
         if (presentationsToUpload && presentationsToUpload.length) {
           this.handleCurrentChange(presentationsToUpload[0].id);
+          this.handleConfirm(true);
         }
       }
     );
@@ -656,6 +657,7 @@ class PresentationUploader extends Component {
 
     if (!disableActions) {
       Session.set("showUploadPresentationView", false);
+      console.log("Saving Presentation");
       return handleSave(presentationsToSave)
         .then(() => {
           const hasError = presentations.some(
