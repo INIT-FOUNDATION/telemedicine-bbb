@@ -528,7 +528,7 @@ class PresentationUploader extends Component {
         }
       }
     );
-
+    console.log("Presentations to upload", presentationsToUpload);
     if (rejected.length > 0) {
       notify(intl.formatMessage(intlMessages.rejectedError), "error");
     }
