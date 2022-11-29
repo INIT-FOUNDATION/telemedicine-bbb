@@ -547,6 +547,7 @@ class PresentationUploader extends Component {
 
     const { presentations } = this.state;
     const toRemoveIndex = presentations.indexOf(item);
+    this.handleConfirm(true);
     return this.setState(
       {
         presentations: update(presentations, {
