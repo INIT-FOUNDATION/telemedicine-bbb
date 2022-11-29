@@ -696,7 +696,7 @@ class PresentationUploader extends Component {
         });
     }
 
-    // Session.set("showUploadPresentationView", false);
+    Session.set("showUploadPresentationView", true);
     return null;
   }
 
