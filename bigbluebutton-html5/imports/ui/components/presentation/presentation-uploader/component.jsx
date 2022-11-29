@@ -1410,13 +1410,13 @@ class PresentationUploader extends Component {
           <Styled.ModalHeader>
             <h1>{intl.formatMessage(intlMessages.title)}</h1>
             <Styled.ActionWrapper>
-              {/* <Styled.DismissButton
+              <Styled.DismissButton
                 color="secondary"
                 onClick={this.handleDismiss}
                 label={intl.formatMessage(intlMessages.dismissLabel)}
                 aria-describedby={intl.formatMessage(intlMessages.dismissDesc)}
               />
-              <Styled.ConfirmButton
+              {/* <Styled.ConfirmButton
                 data-test="confirmManagePresentation"
                 color="primary"
                 onClick={() => this.handleConfirm(hasNewUpload)}
