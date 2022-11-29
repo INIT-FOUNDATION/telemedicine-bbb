@@ -656,7 +656,7 @@ class PresentationUploader extends Component {
     if (this.toastId) Session.set("UploadPresentationToastId", this.toastId);
 
     if (!disableActions) {
-      Session.set("showUploadPresentationView", false);
+      Session.set("showUploadPresentationView", true);
       console.log("Saving Presentation");
       return handleSave(presentationsToSave)
         .then(() => {
