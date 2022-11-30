@@ -58,7 +58,7 @@ const WaitingUsers = ({
             onClick={toggleWaitingPanel}
             onKeyPress={() => {}}
           >
-            <Icon iconName="user" />
+            <Icon iconName="lobby" />
             <span>{intl.formatMessage(intlMessages.title)}</span>
             {pendingUsers.length > 0 && (
               <Styled.UnreadMessages>

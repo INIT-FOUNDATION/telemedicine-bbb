@@ -142,8 +142,16 @@
 .icon-bbb-left_arrow:before {
   content: "\e90d";
 }
-.icon-bbb-group_chat:before {
+/* .icon-bbb-group_chat:before {
   content: "\e910";
+} */
+.icon-bbb-group_chat:before {
+  font-family: FontAwesome !important;
+  content: "\f4b6";
+}
+.icon-bbb-lobby:before {
+  font-family: FontAwesome !important;
+  content: "\f4cc";
 }
 .icon-bbb-close:before {
   content: "\e912";
