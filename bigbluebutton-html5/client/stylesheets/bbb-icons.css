@@ -147,11 +147,11 @@
 } */
 .icon-bbb-group_chat:before {
   font-family: FontAwesome !important;
-  content: "\f4b6";
+  content: "\f075";
 }
 .icon-bbb-lobby:before {
   font-family: FontAwesome !important;
-  content: "\f4cc";
+  content: "\f4b8";
 }
 .icon-bbb-close:before {
   content: "\e912";
