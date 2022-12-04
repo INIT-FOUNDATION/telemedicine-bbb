@@ -46,6 +46,7 @@ export default function toggleRecording() {
     const user = Users.findOne(selector);
 
     if (allowedToRecord && !!user && user.role === ROLE_MODERATOR) {
+      console.log("Started Recording")
       Logger.info(`Setting the record parameter to ${!meetingRecorded} for ${meetingId} by ${requesterUserId}`);
       RedisPubSub.publishUserMessage(CHANNEL, EVENT_NAME, meetingId, requesterUserId, payload);
     }

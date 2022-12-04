@@ -177,7 +177,6 @@ class RecordingIndicator extends PureComponent {
           "warning"
         );
       }
-      console.log("Recording Started");
       mountModal(<RecordingContainer amIModerator={amIModerator} />);
       document.activeElement.blur();
     };
