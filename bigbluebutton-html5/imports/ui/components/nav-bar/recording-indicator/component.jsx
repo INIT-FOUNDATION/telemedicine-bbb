@@ -1,48 +1,49 @@
-import React, { PureComponent, Fragment } from 'react';
-import RecordingContainer from '/imports/ui/components/recording/container';
-import humanizeSeconds from '/imports/utils/humanizeSeconds';
-import Tooltip from '/imports/ui/components/common/tooltip/component';
-import PropTypes from 'prop-types';
-import { defineMessages, injectIntl } from 'react-intl';
-import Styled from './styles';
-import RecordingNotifyContainer from './notify/container';
+import React, { PureComponent, Fragment } from "react";
+import RecordingContainer from "/imports/ui/components/recording/container";
+import humanizeSeconds from "/imports/utils/humanizeSeconds";
+import Tooltip from "/imports/ui/components/common/tooltip/component";
+import PropTypes from "prop-types";
+import { defineMessages, injectIntl } from "react-intl";
+import Styled from "./styles";
+import RecordingNotifyContainer from "./notify/container";
 
 const intlMessages = defineMessages({
   notificationRecordingStart: {
-    id: 'app.notification.recordingStart',
-    description: 'Notification for when the recording starts',
+    id: "app.notification.recordingStart",
+    description: "Notification for when the recording starts",
   },
   notificationRecordingStop: {
-    id: 'app.notification.recordingStop',
-    description: 'Notification for when the recording stops',
+    id: "app.notification.recordingStop",
+    description: "Notification for when the recording stops",
   },
   recordingAriaLabel: {
-    id: 'app.notification.recordingAriaLabel',
-    description: 'Notification for when the recording stops',
+    id: "app.notification.recordingAriaLabel",
+    description: "Notification for when the recording stops",
   },
   startTitle: {
-    id: 'app.recording.startTitle',
-    description: 'start recording title',
+    id: "app.recording.startTitle",
+    description: "start recording title",
   },
   stopTitle: {
-    id: 'app.recording.stopTitle',
-    description: 'stop recording title',
+    id: "app.recording.stopTitle",
+    description: "stop recording title",
   },
   resumeTitle: {
-    id: 'app.recording.resumeTitle',
-    description: 'resume recording title',
+    id: "app.recording.resumeTitle",
+    description: "resume recording title",
   },
   recordingIndicatorOn: {
-    id: 'app.navBar.recording.on',
-    description: 'label for indicator when the session is being recorded',
+    id: "app.navBar.recording.on",
+    description: "label for indicator when the session is being recorded",
   },
   recordingIndicatorOff: {
-    id: 'app.navBar.recording.off',
-    description: 'label for indicator when the session is not being recorded',
+    id: "app.navBar.recording.off",
+    description: "label for indicator when the session is not being recorded",
   },
   emptyAudioBrdige: {
-    id: 'app.navBar.emptyAudioBrdige',
-    description: 'message for notification when recording starts with no users in audio bridge',
+    id: "app.navBar.emptyAudioBrdige",
+    description:
+      "message for notification when recording starts with no users in audio bridge",
   },
 });
 
@@ -67,7 +68,7 @@ class RecordingIndicator extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      time: (props.time ? props.time : 0),
+      time: props.time ? props.time : 0,
       shouldNotify: false,
     };
 
@@ -77,7 +78,7 @@ class RecordingIndicator extends PureComponent {
 
   toggleShouldNotify() {
     const { shouldNotify } = this.state;
-    this.setState({shouldNotify: !shouldNotify});
+    this.setState({ shouldNotify: !shouldNotify });
   }
 
   componentDidMount() {
@@ -89,7 +90,8 @@ class RecordingIndicator extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { recording, mountModal, getModal, recordingNotificationEnabled } = this.props;
+    const { recording, mountModal, getModal, recordingNotificationEnabled } =
+      this.props;
     const { shouldNotify } = this.state;
 
     if (!recording) {
@@ -101,15 +103,19 @@ class RecordingIndicator extends PureComponent {
 
     if (recordingNotificationEnabled) {
       if (!prevProps.recording && recording && !shouldNotify) {
-        return this.setState({shouldNotify: true});
+        return this.setState({ shouldNotify: true });
       }
-  
+
       const isModalOpen = !!getModal();
-  
+
       // should only display notification modal when other modals are closed
       if (shouldNotify && !isModalOpen) {
-        mountModal(<RecordingNotifyContainer toggleShouldNotify={this.toggleShouldNotify} />);
-      }  
+        mountModal(
+          <RecordingNotifyContainer
+            toggleShouldNotify={this.toggleShouldNotify}
+          />
+        );
+      }
     }
   }
 
@@ -144,16 +150,20 @@ class RecordingIndicator extends PureComponent {
       this.interval = setInterval(this.incrementTime, 1000);
     }
 
-    const title = intl.formatMessage(recording ? intlMessages.recordingIndicatorOn
-      : intlMessages.recordingIndicatorOff);
+    const title = intl.formatMessage(
+      recording
+        ? intlMessages.recordingIndicatorOn
+        : intlMessages.recordingIndicatorOff
+    );
 
-    let recordTitle = '';
+    let recordTitle = "";
 
     if (!isPhone) {
       if (!recording) {
-        recordTitle = time > 0
-          ? intl.formatMessage(intlMessages.resumeTitle)
-          : intl.formatMessage(intlMessages.startTitle);
+        recordTitle =
+          time > 0
+            ? intl.formatMessage(intlMessages.resumeTitle)
+            : intl.formatMessage(intlMessages.startTitle);
       } else {
         recordTitle = intl.formatMessage(intlMessages.stopTitle);
       }
@@ -161,27 +171,34 @@ class RecordingIndicator extends PureComponent {
 
     const recordingToggle = () => {
       if (!micUser && !recording) {
-        notify(intl.formatMessage(intlMessages.emptyAudioBrdige), 'error', 'warning');
+        notify(
+          intl.formatMessage(intlMessages.emptyAudioBrdige),
+          "error",
+          "warning"
+        );
       }
+      console.log("Recording Started");
       mountModal(<RecordingContainer amIModerator={amIModerator} />);
       document.activeElement.blur();
     };
 
     const recordingIndicatorIcon = (
-      <Styled.RecordingIndicatorIcon titleMargin={!isPhone || recording} data-test="mainWhiteboard">
-        <svg xmlns="http://www.w3.org/2000/svg" height="100%" version="1" viewBox="0 0 20 20">
+      <Styled.RecordingIndicatorIcon
+        titleMargin={!isPhone || recording}
+        data-test="mainWhiteboard"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="100%"
+          version="1"
+          viewBox="0 0 20 20"
+        >
           <g stroke="#FFF" fill="#FFF" strokeLinecap="square">
-            <circle
-              fill="none"
-              strokeWidth="1"
-              r="9"
-              cx="10"
-              cy="10"
-            />
+            <circle fill="none" strokeWidth="1" r="9" cx="10" cy="10" />
             <circle
               stroke="#FFF"
               fill="#FFF"
-              r={recording ? '5' : '4'}
+              r={recording ? "5" : "4"}
               cx="10"
               cy="10"
             />
@@ -206,10 +223,13 @@ class RecordingIndicator extends PureComponent {
         {recordingIndicatorIcon}
         <Styled.PresentationTitle>
           <Styled.VisuallyHidden id={"recording-description"}>
-            {`${title} ${recording ? humanizeSeconds(time) : ''}`}
+            {`${title} ${recording ? humanizeSeconds(time) : ""}`}
           </Styled.VisuallyHidden>
-          {recording
-            ? <span aria-hidden>{humanizeSeconds(time)}</span> : <span>{recordTitle}</span>}
+          {recording ? (
+            <span aria-hidden>{humanizeSeconds(time)}</span>
+          ) : (
+            <span>{recordTitle}</span>
+          )}
         </Styled.PresentationTitle>
       </Styled.RecordingControl>
     );
@@ -220,34 +240,43 @@ class RecordingIndicator extends PureComponent {
       </Tooltip>
     );
 
-    const recordingButton = recording ? recordMeetingButtonWithTooltip : recordMeetingButton;
+    const recordingButton = recording
+      ? recordMeetingButtonWithTooltip
+      : recordMeetingButton;
 
     return (
       <Fragment>
-        {record
-          ? <Styled.PresentationTitleSeparator aria-hidden>|</Styled.PresentationTitleSeparator>
-          : null}
+        {record ? (
+          <Styled.PresentationTitleSeparator aria-hidden>
+            |
+          </Styled.PresentationTitleSeparator>
+        ) : null}
         <Styled.RecordingIndicator data-test="recordingIndicator">
-          {showButton
-            ? recordingButton
-            : null}
+          {showButton ? recordingButton : null}
 
           {showButton ? null : (
             <Tooltip
-              title={`${intl.formatMessage(recording
-                ? intlMessages.notificationRecordingStart
-                : intlMessages.notificationRecordingStop)}`}
+              title={`${intl.formatMessage(
+                recording
+                  ? intlMessages.notificationRecordingStart
+                  : intlMessages.notificationRecordingStop
+              )}`}
             >
               <Styled.RecordingStatusViewOnly
-                aria-label={`${intl.formatMessage(recording
-                  ? intlMessages.notificationRecordingStart
-                  : intlMessages.notificationRecordingStop)}`}
-                  recording={recording}
+                aria-label={`${intl.formatMessage(
+                  recording
+                    ? intlMessages.notificationRecordingStart
+                    : intlMessages.notificationRecordingStop
+                )}`}
+                recording={recording}
               >
                 {recordingIndicatorIcon}
 
-                {recording
-                  ? <Styled.PresentationTitle>{humanizeSeconds(time)}</Styled.PresentationTitle> : null}
+                {recording ? (
+                  <Styled.PresentationTitle>
+                    {humanizeSeconds(time)}
+                  </Styled.PresentationTitle>
+                ) : null}
               </Styled.RecordingStatusViewOnly>
             </Tooltip>
           )}
