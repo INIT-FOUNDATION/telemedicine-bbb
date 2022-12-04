@@ -16,17 +16,18 @@ export default withModalMounter(
       meetingId: Auth.meetingID,
     });
 
-    const ROLE_MODERATOR = Meteor.settings.public.user.role_moderator;
-
-    const selector = {
-      meetingId: Auth.meetingID,
-      userId: Auth.userID,
-    };
-    const user = Users.findOne(selector);
-
     return {
       toggleRecording: () => {
         makeCall("toggleRecording");
+        const ROLE_MODERATOR = Meteor.settings.public.user.role_moderator;
+        console.log("Moderator Name", ROLE_MODERATOR);
+        const selector = {
+          meetingId: Auth.meetingID,
+          userId: Auth.userID,
+        };
+        console.log("Selector", selector);
+        const user = Users.findOne(selector);
+        console.log("User", "User");
         if (user.role != ROLE_MODERATOR) {
           console.log("Recording notification for participant");
         }
