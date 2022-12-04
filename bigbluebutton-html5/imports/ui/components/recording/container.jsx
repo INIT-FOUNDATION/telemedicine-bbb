@@ -28,8 +28,10 @@ export default withModalMounter(
         console.log("Selector", selector);
         const user = Users.findOne(selector);
         console.log("User", user);
-        if (user.role != ROLE_MODERATOR) {
+        if (user.role !== ROLE_MODERATOR) {
           console.log("Recording notification for participant");
+        } else {
+          console.log("Recording notification for moderator");
         }
         mountModal(null);
       },
