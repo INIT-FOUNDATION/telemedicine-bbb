@@ -177,6 +177,11 @@ class RecordingIndicator extends PureComponent {
           "warning"
         );
       }
+      notify(
+        intl.formatMessage(intlMessages.notificationRecordingStart),
+        "error",
+        "warning"
+      );
       mountModal(<RecordingContainer amIModerator={amIModerator} />);
       document.activeElement.blur();
     };
