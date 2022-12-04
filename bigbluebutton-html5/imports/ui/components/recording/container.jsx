@@ -17,7 +17,6 @@ export default withModalMounter(
     return {
       toggleRecording: () => {
         makeCall("toggleRecording");
-        console.log("Now Started Recording");
         mountModal(null);
       },
 
