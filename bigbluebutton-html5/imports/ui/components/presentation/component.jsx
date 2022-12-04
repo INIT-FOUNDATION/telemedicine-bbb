@@ -254,21 +254,21 @@ class Presentation extends PureComponent {
         (downloadableOn && !userIsPresenter)
       ) {
         if (this.currentPresentationToastId) {
-          toast.update(this.currentPresentationToastId, {
-            autoClose: shouldCloseToast,
-            render: this.renderCurrentPresentationToast(),
-          });
+          // toast.update(this.currentPresentationToastId, {
+          //   autoClose: shouldCloseToast,
+          //   render: this.renderCurrentPresentationToast(),
+          // });
         } else {
-          this.currentPresentationToastId = toast(
-            this.renderCurrentPresentationToast(),
-            {
-              onClose: () => {
-                this.currentPresentationToastId = null;
-              },
-              autoClose: shouldCloseToast,
-              className: "actionToast currentPresentationToast",
-            }
-          );
+          // this.currentPresentationToastId = toast(
+          //   this.renderCurrentPresentationToast(),
+          //   {
+          //     onClose: () => {
+          //       this.currentPresentationToastId = null;
+          //     },
+          //     autoClose: shouldCloseToast,
+          //     className: "actionToast currentPresentationToast",
+          //   }
+          // );
         }
       }
 
@@ -277,10 +277,10 @@ class Presentation extends PureComponent {
         !currentPresentation.downloadable;
 
       if (this.currentPresentationToastId && downloadableOff) {
-        toast.update(this.currentPresentationToastId, {
-          autoClose: true,
-          render: this.renderCurrentPresentationToast(),
-        });
+        // toast.update(this.currentPresentationToastId, {
+        //   autoClose: true,
+        //   render: this.renderCurrentPresentationToast(),
+        // });
       }
     }
 
