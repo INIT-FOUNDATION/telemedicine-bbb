@@ -643,15 +643,15 @@ class PresentationUploader extends Component {
     });
 
     if (hasNewUpload) {
-      this.toastId = toast.info(this.renderToastList(), {
-        hideProgressBar: true,
-        autoClose: false,
-        newestOnTop: true,
-        closeOnClick: true,
-        onClose: () => {
-          this.toastId = null;
-        },
-      });
+      // this.toastId = toast.info(this.renderToastList(), {
+      //   hideProgressBar: true,
+      //   autoClose: false,
+      //   newestOnTop: true,
+      //   closeOnClick: true,
+      //   onClose: () => {
+      //     this.toastId = null;
+      //   },
+      // });
     }
 
     if (this.toastId) Session.set("UploadPresentationToastId", this.toastId);

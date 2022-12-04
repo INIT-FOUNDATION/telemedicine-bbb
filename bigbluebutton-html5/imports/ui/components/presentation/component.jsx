@@ -249,39 +249,39 @@ class Presentation extends PureComponent {
         currentPresentation.downloadable && !userIsPresenter
       );
 
-      if (
-        prevProps?.currentPresentation?.name !== currentPresentation.name ||
-        (downloadableOn && !userIsPresenter)
-      ) {
-        if (this.currentPresentationToastId) {
-          toast.update(this.currentPresentationToastId, {
-            autoClose: shouldCloseToast,
-            render: this.renderCurrentPresentationToast(),
-          });
-        } else {
-          this.currentPresentationToastId = toast(
-            this.renderCurrentPresentationToast(),
-            {
-              onClose: () => {
-                this.currentPresentationToastId = null;
-              },
-              autoClose: shouldCloseToast,
-              className: "actionToast currentPresentationToast",
-            }
-          );
-        }
-      }
+      // if (
+      //   prevProps?.currentPresentation?.name !== currentPresentation.name ||
+      //   (downloadableOn && !userIsPresenter)
+      // ) {
+      //   if (this.currentPresentationToastId) {
+      //     toast.update(this.currentPresentationToastId, {
+      //       autoClose: shouldCloseToast,
+      //       render: this.renderCurrentPresentationToast(),
+      //     });
+      //   } else {
+      //     this.currentPresentationToastId = toast(
+      //       this.renderCurrentPresentationToast(),
+      //       {
+      //         onClose: () => {
+      //           this.currentPresentationToastId = null;
+      //         },
+      //         autoClose: shouldCloseToast,
+      //         className: "actionToast currentPresentationToast",
+      //       }
+      //     );
+      //   }
+      // }
 
       const downloadableOff =
         prevProps?.currentPresentation?.downloadable &&
         !currentPresentation.downloadable;
 
-      if (this.currentPresentationToastId && downloadableOff) {
-        toast.update(this.currentPresentationToastId, {
-          autoClose: true,
-          render: this.renderCurrentPresentationToast(),
-        });
-      }
+      // if (this.currentPresentationToastId && downloadableOff) {
+      //   toast.update(this.currentPresentationToastId, {
+      //     autoClose: true,
+      //     render: this.renderCurrentPresentationToast(),
+      //   });
+      // }
     }
 
     if (prevProps?.slidePosition && slidePosition) {
