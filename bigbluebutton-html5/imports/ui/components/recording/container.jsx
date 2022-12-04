@@ -4,7 +4,6 @@ import { withModalMounter } from "/imports/ui/components/common/modal/service";
 import { makeCall } from "/imports/ui/services/api";
 import { RecordMeetings } from "/imports/api/meetings";
 import Auth from "/imports/ui/services/auth";
-import Users from "/imports/api/users";
 import RecordingComponent from "./component";
 import { Meteor } from "meteor/meteor";
 
@@ -19,20 +18,6 @@ export default withModalMounter(
     return {
       toggleRecording: () => {
         makeCall("toggleRecording");
-        const ROLE_MODERATOR = Meteor.settings.public.user.role_moderator;
-        console.log("Moderator Name", ROLE_MODERATOR);
-        const selector = {
-          meetingId: Auth.meetingID,
-          userId: Auth.userID,
-        };
-        console.log("Selector", selector);
-        const user = Users.findOne(selector);
-        console.log("User", user);
-        if (user.role !== ROLE_MODERATOR) {
-          console.log("Recording notification for participant");
-        } else {
-          console.log("Recording notification for moderator");
-        }
         mountModal(null);
       },
 

@@ -170,18 +170,13 @@ class RecordingIndicator extends PureComponent {
     }
 
     const recordingToggle = () => {
-      if (!micUser && !recording) {
-        notify(
-          intl.formatMessage(intlMessages.emptyAudioBrdige),
-          "error",
-          "warning"
-        );
-      }
-      notify(
-        intl.formatMessage(intlMessages.notificationRecordingStart),
-        "error",
-        "warning"
-      );
+      // if (!micUser && !recording) {
+      //   notify(
+      //     intl.formatMessage(intlMessages.emptyAudioBrdige),
+      //     "error",
+      //     "warning"
+      //   );
+      // }
       mountModal(<RecordingContainer amIModerator={amIModerator} />);
       document.activeElement.blur();
     };
