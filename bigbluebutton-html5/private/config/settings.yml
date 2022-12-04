@@ -153,10 +153,10 @@ public:
         userJoinPushAlerts: false
         userLeaveAudioAlerts: false
         userLeavePushAlerts: false
-        raiseHandAudioAlerts: true
-        raiseHandPushAlerts: true
+        raiseHandAudioAlerts: false
+        raiseHandPushAlerts: false
         guestWaitingAudioAlerts: true
-        guestWaitingPushAlerts: true
+        guestWaitingPushAlerts: false
         paginationEnabled: true
         darkTheme: false
         # fallbackLocale: if the locale the client is loaded in does not have a

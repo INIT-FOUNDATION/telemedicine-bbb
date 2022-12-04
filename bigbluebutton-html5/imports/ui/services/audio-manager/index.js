@@ -548,7 +548,7 @@ class AudioManager {
     }
 
     if (!this.isEchoTest) {
-      this.notify(this.intl.formatMessage(this.messages.info.JOINED_AUDIO));
+      // this.notify(this.intl.formatMessage(this.messages.info.JOINED_AUDIO));
       logger.info({ logCode: 'audio_joined' }, 'Audio Joined');
       this.inputStream = this.bridge ? this.bridge.inputStream : null;
       if (STATS.enabled) this.monitor();
@@ -597,11 +597,11 @@ class AudioManager {
     }
 
     if (!this.error && !this.isEchoTest) {
-      this.notify(
-        this.intl.formatMessage(this.messages.info.LEFT_AUDIO),
-        false,
-        'no_audio'
-      );
+      // this.notify(
+      //   this.intl.formatMessage(this.messages.info.LEFT_AUDIO),
+      //   false,
+      //   'no_audio'
+      // );
     }
     if (!this.isEchoTest) {
       this.playHangUpSound();
@@ -652,7 +652,7 @@ class AudioManager {
           `Audio error - errorCode=${error}, cause=${bridgeError}`
         );
         if (silenceNotifications !== true) {
-          this.notify(errorMsg, true);
+          // this.notify(errorMsg, true);
           this.exitAudio();
           this.onAudioExit();
         }
@@ -858,19 +858,18 @@ class AudioManager {
 
   playHangUpSound() {
     this.playAlertSound(
-      `${
-        Meteor.settings.public.app.cdn +
-        Meteor.settings.public.app.basename +
-        Meteor.settings.public.app.instanceId
+      `${Meteor.settings.public.app.cdn +
+      Meteor.settings.public.app.basename +
+      Meteor.settings.public.app.instanceId
       }` + '/resources/sounds/LeftCall.mp3'
     );
   }
 
-  notify(message, error = false, icon = 'unmute') {
-    const audioIcon = this.isListenOnly ? 'listen' : icon;
+  // notify(message, error = false, icon = 'unmute') {
+  //   const audioIcon = this.isListenOnly ? 'listen' : icon;
 
-    notify(message, error ? 'error' : 'info', audioIcon);
-  }
+  //   notify(message, error ? 'error' : 'info', audioIcon);
+  // }
 
   monitor() {
     const peer = this.bridge.getPeerConnection();

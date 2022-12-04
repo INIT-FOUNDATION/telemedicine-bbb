@@ -437,9 +437,9 @@ class PresentationUploader extends Component {
         this.handleDismissToast(this.toastId);
       }
 
-      toast.update(this.toastId, {
-        render: this.renderToastList(),
-      });
+      // toast.update(this.toastId, {
+      //   render: this.renderToastList(),
+      // });
     }
 
     if (this.exportToastId) {
