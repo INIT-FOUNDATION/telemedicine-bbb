@@ -27,7 +27,7 @@ export default withModalMounter(
         };
         console.log("Selector", selector);
         const user = Users.findOne(selector);
-        console.log("User", "User");
+        console.log("User", user);
         if (user.role != ROLE_MODERATOR) {
           console.log("Recording notification for participant");
         }
