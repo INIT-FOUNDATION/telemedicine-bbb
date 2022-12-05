@@ -407,11 +407,7 @@ class AudioModal extends Component {
                 circle
                 size="jumbo"
                 disabled={audioLocked}
-                onClick={
-                  joinFullAudioImmediately
-                    ? this.handleJoinMicrophone
-                    : this.handleGoToEchoTest
-                }
+                onClick={this.handleJoinMicrophone}
               />
               <span className="sr-only" id="mic-description">
                 {intl.formatMessage(intlMessages.microphoneDesc)}
