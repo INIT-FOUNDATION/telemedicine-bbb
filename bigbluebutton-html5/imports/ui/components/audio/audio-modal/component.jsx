@@ -396,7 +396,7 @@ class AudioModal extends Component {
 
     return (
       <div>
-        <Styled.AudioOptions data-test="audioModalOptions">
+        {/* <Styled.AudioOptions data-test="audioModalOptions">
           {!showMicrophone && !isMobileNative && (
             <>
               <Styled.AudioModalButton
@@ -443,7 +443,7 @@ class AudioModal extends Component {
             }}
           />
         ) : null}
-        <CaptionsSelectContainer />
+        <CaptionsSelectContainer /> */}
       </div>
     );
   }
