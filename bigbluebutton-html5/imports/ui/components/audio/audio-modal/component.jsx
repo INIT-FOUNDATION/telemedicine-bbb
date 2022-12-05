@@ -590,8 +590,6 @@ class AudioModal extends Component {
 
     const { content } = this.state;
 
-    this.handleJoinMicrophone();
-
     return (
       <span>
         {showPermissionsOvelay ? (
@@ -624,7 +622,7 @@ class AudioModal extends Component {
               </Styled.Title>
             </Styled.Header>
           ) : null}
-          {/* <Styled.Content>{this.renderContent()}</Styled.Content> */}
+          <Styled.Content>{this.renderContent()}</Styled.Content>
         </Styled.AudioModal>
       </span>
     );
