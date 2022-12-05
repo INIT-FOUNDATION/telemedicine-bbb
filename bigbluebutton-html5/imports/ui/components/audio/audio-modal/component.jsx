@@ -476,27 +476,27 @@ class AudioModal extends Component {
     const { content } = this.state;
     const { animations } = Settings.application;
 
-    if (this.skipAudioOptions()) {
-      return (
-        <Styled.Connecting role="alert">
-          <span
-            data-test={
-              !isEchoTest ? "establishingAudioLabel" : "connectingToEchoTest"
-            }
-            style={audioTitle}
-          >
-            <img
-              class="avia_image"
-              src="https://api-lb.aieze.in/api/v1/admin/cdn/file?file_name=public/audio-loader-light-green.gif"
-              itemprop="thumbnailUrl"
-              style={audioConnectingGif}
-            />
-            {intl.formatMessage(intlMessages.connecting)}{" "}
-          </span>
-          {/* <Styled.ConnectingAnimation animations={animations} /> */}
-        </Styled.Connecting>
-      );
-    }
+    // if (this.skipAudioOptions()) {
+    //   return (
+    //     <Styled.Connecting role="alert">
+    //       <span
+    //         data-test={
+    //           !isEchoTest ? "establishingAudioLabel" : "connectingToEchoTest"
+    //         }
+    //         style={audioTitle}
+    //       >
+    //         <img
+    //           class="avia_image"
+    //           src="https://api-lb.aieze.in/api/v1/admin/cdn/file?file_name=public/audio-loader-light-green.gif"
+    //           itemprop="thumbnailUrl"
+    //           style={audioConnectingGif}
+    //         />
+    //         {intl.formatMessage(intlMessages.connecting)}{" "}
+    //       </span>
+    //       {/* <Styled.ConnectingAnimation animations={animations} /> */}
+    //     </Styled.Connecting>
+    //   );
+    // }
     return content
       ? this.contents[content].component()
       : this.renderAudioOptions();
