@@ -595,7 +595,7 @@ class AudioModal extends Component {
         {showPermissionsOvelay ? (
           <PermissionsOverlay closeModal={closeModal} />
         ) : null}
-        <Styled.AudioModal
+        {/* <Styled.AudioModal
           onRequestClose={closeModal}
           hideBorder
           data-test="audioModal"
@@ -623,7 +623,7 @@ class AudioModal extends Component {
             </Styled.Header>
           ) : null}
           <Styled.Content>{this.renderContent()}</Styled.Content>
-        </Styled.AudioModal>
+        </Styled.AudioModal> */}
       </span>
     );
   }
