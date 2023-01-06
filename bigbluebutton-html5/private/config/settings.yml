@@ -182,13 +182,13 @@ public:
         #These values are used as initial constraints for every new participant,
         #and can be changed by user in: Settings > Application > Microphone
         #Audio Filters.
-        # microphoneConstraints:
-        #   autoGainControl:
-        #     ideal: true
-        #   echoCancellation:
-        #     ideal: true
-        #   noiseSuppression:
-        #     ideal: true
+        microphoneConstraints:
+          autoGainControl:
+            ideal: true
+          echoCancellation:
+            ideal: true
+          noiseSuppression:
+            ideal: true
       audio:
         inputDeviceId: undefined
         outputDeviceId: undefined
