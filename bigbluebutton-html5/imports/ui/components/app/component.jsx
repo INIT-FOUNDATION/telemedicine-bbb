@@ -356,7 +356,7 @@ class App extends Component {
     const { showPushLayoutButton } = LAYOUT_CONFIG;
 
     if (hideActionsBar) return null;
-
+    console.log("Action Bar style", actionsBarStyle);
     return (
       <Styled.ActionsBar
         id="ActionsBar"
