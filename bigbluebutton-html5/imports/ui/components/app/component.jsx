@@ -356,7 +356,7 @@ class App extends Component {
     const { showPushLayoutButton } = LAYOUT_CONFIG;
 
     if (hideActionsBar) return null;
-    console.log("Action Bar style", actionsBarStyle);
+
     return (
       <Styled.ActionsBar
         id="ActionsBar"
@@ -366,10 +366,7 @@ class App extends Component {
         style={{
           position: "absolute",
           top: actionsBarStyle.top,
-          left:
-            actionsBarStyle.left > 600
-              ? actionsBarStyle.left / 2
-              : actionsBarStyle.left,
+          left: actionsBarStyle.left,
           height: actionsBarStyle.height,
           width: actionsBarStyle.width,
           padding: actionsBarStyle.padding,
